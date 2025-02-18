@@ -1,0 +1,633 @@
+diff --git a/scratch/common.h b/scratch/common.h
+index fe5f4d6e9..7fe911639 100644
+--- a/scratch/common.h
++++ b/scratch/common.h
+@@ -34,8 +34,11 @@
+ #include <ns3/rdma.h>
+ #include <ns3/sim-setting.h>
+ #include <ns3/switch-node.h>
++#include <algorithm>
++#include <stack>
+ #include <time.h>
+ #include <unordered_map>
++#include <vector>
+ 
+ using namespace ns3;
+ using namespace std;
+@@ -108,12 +111,16 @@ struct Interface {
+   bool up;
+   uint64_t delay;
+   uint64_t bw;
++  double err;
+ 
+   Interface() : idx(0), up(false) {}
+ };
+ map<Ptr<Node>, map<Ptr<Node>, Interface>> nbr2if;
+ // Mapping destination to next hop for each node: <node, <dest, <nexthop0, ...>
+ // > >
++// --- Jalil
++map<Ptr<Node>, map<Ptr<Node>, vector<std::pair<uint64_t, vector<Ptr<Node>>>>>> costRoutingTable;
++// --- Jalil
+ map<Ptr<Node>, map<Ptr<Node>, vector<Ptr<Node>>>> nextHop;
+ map<Ptr<Node>, map<Ptr<Node>, uint64_t>> pairDelay;
+ map<Ptr<Node>, map<Ptr<Node>, uint64_t>> pairTxDelay;
+@@ -202,10 +209,181 @@ void monitor_buffer(FILE *qlen_output, NodeContainer *n) {
+     }
+   }
+   fflush(qlen_output);
++  /* Jalil Morris
+   Simulator::Schedule(NanoSeconds(qlen_mon_interval), &monitor_buffer,
+                       qlen_output, n);
++  */
+ }
+ 
++// --- Jalil
++uint64_t CostFunction (uint64_t delay, uint64_t bw, double err) {
++  double bdp = static_cast<double> (delay) * 1.0e3 + (1.0e12 / static_cast<double> (bw)); // in ps
++  bdp = bdp / (1.0 - err);
++  return static_cast<uint64_t> (bdp);
++}
++
++uint64_t ComputeCost (std::vector<Ptr<Node>> path) {
++  uint64_t cost = 0;
++  auto it = path.begin ();
++  Ptr<Node> src, dst;
++
++  src = *it;
++  it++;
++  while (it != path.end ()) {
++    // get next link
++    dst = *it;
++    // add cost
++    auto spec = nbr2if[src][dst];
++    cost = cost + CostFunction (spec.delay, spec.bw, spec.err);
++    // slide over
++    src = dst;
++    it++;
++  }
++  return cost;
++}
++
++void GetRoute (Ptr<Node> host) {
++  // std::cout << "host " << host->GetId () << std::endl;
++  std::vector<Ptr<Node>> p;
++  std::stack<std::pair<Ptr<Node>, Ptr<Node>>> s; // stack (endpointA, endPointB)
++
++  p.push_back (host);
++  for (auto it = nbr2if[host].begin (); it != nbr2if[host].end (); ++it) {
++    if (it->second.up) {
++      s.push (std::pair<Ptr<Node>, Ptr<Node>> (host,it->first));
++    }
++  }
++
++  while (s.size () > 0) {
++    // grab a link
++    auto link = s.top ();
++    s.pop ();
++    auto src = link.first;
++    auto dst = link.second;
++
++    // std::cout << "\npath is: ";
++    for (auto it = p.begin (); it != p.end (); it++) {
++      auto npath = *it;
++      // std::cout << npath->GetId () << " ";
++    }
++    // std::cout << std::endl;
++    // std::cout << "handling link: " << src->GetId () << " , " << dst->GetId () << std::endl;
++
++    // if not connected to previous node, remove previous node and add path to routing table
++    while (p.back () != src) {
++      // std::cout << "add path to routing table ( ";
++      for (auto it = p.begin (); it != p.end (); it++) {
++        auto npath = *it;
++        // std::cout << npath->GetId () << " ";
++      }
++      // std::cout << ")" << std::endl;
++      costRoutingTable[p.back ()][host].emplace_back (ComputeCost (p), p);
++      p.pop_back ();
++    }
++
++    // if destination already hit ignore
++    if (std::find (p.begin (), p.end (), dst) != p.end ()) {
++      continue;
++    }
++    
++    // add new host to path
++    p.push_back (dst);
++
++    // nodes do not provide passthrough so continue
++    if (dst->GetNodeType () == 0) {
++      continue;
++    }
++
++    // add links to stack
++    for (auto it = nbr2if[dst].begin (); it != nbr2if[dst].end (); ++it) {
++      if (it->second.up) {
++        s.push (std::pair<Ptr<Node>, Ptr<Node>> (dst,it->first));
++      }
++    }
++  }
++
++  // empty vector
++  while (!p.empty ()) {
++    // std::cout << "add path to routing table ( ";
++    for (auto it = p.begin (); it != p.end (); it++) {
++      auto npath = *it;
++      // std::cout << npath->GetId () << " ";
++    }
++    // std::cout << ")" << std::endl;
++    costRoutingTable[p.back ()][host].emplace_back (ComputeCost (p), p);
++    p.pop_back ();
++  }
++}
++
++void GetRoutes (NodeContainer &n) {
++  for (int i = 0; i < (int)n.GetN(); i++) {
++    Ptr<Node> node = n.Get(i);
++    if (node->GetNodeType () == 0) {
++      GetRoute(node);
++    }
++  }
++
++  // print routes
++  // std::cout << "all routing table" << std::endl;
++  for (auto iti = costRoutingTable.begin (); iti != costRoutingTable.end (); iti++) {
++    auto src = iti->first;
++    // std::cout << "\t" << src->GetId () << ":" << std::endl;
++    auto pointToPoint = iti->second;
++    for (auto itj = pointToPoint.begin (); itj != pointToPoint.end (); itj++) {
++      auto dst = itj->first;
++      // std::cout << "\t\t" << dst->GetId () << ": ";
++      auto routes = itj->second;
++      for (auto itk = routes.begin (); itk != routes.end (); itk++) {
++	auto cost = itk->first;
++	auto route = itk->second;
++        // std::cout << "[" << cost << "]( ";
++	for (auto itl = route.begin (); itl != route.end (); itl++) {
++	  auto stop = *itl;
++	  // std::cout << stop->GetId () << " ";
++	}
++	// std::cout << ") ";
++      }
++      // std::cout << std::endl;
++    }
++  }
++}
++
++void SetNextHops (void) {
++  // clear next hop table
++  nextHop.clear ();
++  for (auto iti = costRoutingTable.begin (); iti != costRoutingTable.end (); iti++) {
++    auto src = iti->first;
++    auto &pointToPoint = iti->second;
++    for (auto itj = pointToPoint.begin (); itj != pointToPoint.end (); itj++) {
++      auto dst = itj->first;
++      if (dst->GetNodeType () != 0) {
++        // no need to route to switches (should never be the case)
++	continue;
++      } else if (src->GetId () == dst->GetId ()) {
++        // at the same device (do not add to table)
++	// nextHop[src][dst].push_back (src);
++	continue;
++      }
++      auto &routes = itj->second;
++      // sort routes by cost
++      std::sort (routes.begin (), routes.end (), [](auto &left, auto &right) { return left.first < right.first; });
++      // get all lowest cost routes and append node to next hop
++      uint64_t cost = 0xffffffffffffffff; // INT64_MAX
++      for (auto itk = routes.begin (); itk != routes.end (); itk++) {
++        auto routeCost = itk->first;
++	auto &route = itk->second;
++	if (routeCost <= cost) {
++	  // lowest cost
++	  cost = routeCost;
++	  // add to next hop (second to last element)
++	  nextHop[src][dst].push_back (route[route.size () - 2]);
++	}
++      }
++    }
++  }
++}
++// --- Jalil
++
+ void CalculateRoute(Ptr<Node> host) {
+   // queue for the BFS.
+   vector<Ptr<Node>> q;
+@@ -221,16 +399,22 @@ void CalculateRoute(Ptr<Node> host) {
+   txDelay[host] = 0;
+   bw[host] = 0xfffffffffffffffflu;
+   // BFS.
++  // Jalil - iterate through queue
+   for (int i = 0; i < (int)q.size(); i++) {
+     Ptr<Node> now = q[i];
+     int d = dis[now];
++    // Jalil - iterate through links attached to current node
+     for (auto it = nbr2if[now].begin(); it != nbr2if[now].end(); it++) {
+       // skip down link
++      // Jalil - check link is enabled
+       if (!it->second.up)
+         continue;
+       Ptr<Node> next = it->first;
++      // Jalil - distance to this node is unknown
+       if (dis.find(next) == dis.end()) {
++	// Jalil - add list this distance by adding 1 to current hops
+         dis[next] = d + 1;
++	// Jalil - add this delay
+         delay[next] = delay[now] + it->second.delay;
+         txDelay[next] = txDelay[now] +
+                         packet_payload_size * 1000000000lu * 8 / it->second.bw;
+@@ -295,6 +479,9 @@ void TakeDownLink(NodeContainer n, Ptr<Node> a, Ptr<Node> b) {
+   nbr2if[a][b].up = nbr2if[b][a].up = false;
+   nextHop.clear();
+   CalculateRoutes(n);
++  // --- Jalil
++  GetRoutes (n);
++  // --- Morris
+   // clear routing tables
+   for (uint32_t i = 0; i < n.GetN(); i++) {
+     if (n.Get(i)->GetNodeType() == 1)
+@@ -305,6 +492,9 @@ void TakeDownLink(NodeContainer n, Ptr<Node> a, Ptr<Node> b) {
+   DynamicCast<QbbNetDevice>(a->GetDevice(nbr2if[a][b].idx))->TakeDown();
+   DynamicCast<QbbNetDevice>(b->GetDevice(nbr2if[b][a].idx))->TakeDown();
+   // reset routing table
++  // --- Jalil
++  SetNextHops ();
++  // --- Jalil
+   SetRoutingEntries();
+ 
+   // redistribute qp on each host
+@@ -670,6 +860,8 @@ bool SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>)) {
+             .GetTimeStep();
+     nbr2if[snode][dnode].bw =
+         DynamicCast<QbbNetDevice>(d.Get(0))->GetDataRate().GetBitRate();
++    nbr2if[snode][dnode].err = error_rate;
++
+     nbr2if[dnode][snode].idx =
+         DynamicCast<QbbNetDevice>(d.Get(1))->GetIfIndex();
+     nbr2if[dnode][snode].up = true;
+@@ -680,6 +872,7 @@ bool SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>)) {
+             .GetTimeStep();
+     nbr2if[dnode][snode].bw =
+         DynamicCast<QbbNetDevice>(d.Get(1))->GetDataRate().GetBitRate();
++    nbr2if[dnode][snode].err = error_rate;
+ 
+     // This is just to set up the connectivity between nodes. The IP addresses
+     // are useless
+@@ -798,7 +991,47 @@ bool SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>)) {
+ 
+   // setup routing
+   CalculateRoutes(n);
++  // --- Jalil
++  GetRoutes(n);
++  SetNextHops ();
+   SetRoutingEntries();
++  // ----- Jalil -----
++  /*
++  std::cout << "Routing table:" << std::endl;
++  for (auto iti = nextHop.begin (); iti != nextHop.end (); iti++) {
++    // List all next hops for each destination
++    auto host = iti->first;
++    auto routes = iti->second;
++    std::cout << "\t" << host->GetId () << std::endl;
++    for (auto itj =  routes.begin (); itj != routes.end (); itj++) {
++      auto dst = itj->first;
++      auto hops = itj->second;
++      std::cout << "\t\t" << dst->GetId () << " (" << hops.size () << ") -->";
++      for (auto itk = hops.begin (); itk != hops.end (); itk++) {
++	auto hop = *itk;
++        std::cout << " " << hop->GetId ();
++      }
++      std::cout << std::endl;
++    }
++  }
++  std::cout << std::endl;
++  // Spit out links nbr2if : 
++  std::cout << "NBR2IF:" << std::endl;
++  for (auto iti = nbr2if.begin (); iti != nbr2if.end (); iti++) {
++    // List out all the interface connections
++    auto host = iti->first;
++    auto connections = iti->second;
++    std::cout << "\t" << host->GetId () << std::endl;
++    for (auto itj = connections.begin (); itj != connections.end (); itj++) {
++      auto dst = itj->first;
++      auto link = itj->second;
++      std::cout << "\t\tlink (" << link.idx << ") --> " << dst->GetId () << std::endl;
++    }
++  }
++  std::cout << std::endl;
++  */
++  // ----- Jalil -----
++
+ 
+   //
+   // get BDP and delay
+@@ -850,9 +1083,23 @@ bool SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>)) {
+     trace_nodes = NodeContainer(trace_nodes, n.Get(nid));
+   }
+ 
++  // ----- Jalil Morris -----
++  // enable ascii tracing
++  
+   FILE *trace_output = fopen(trace_output_file.c_str(), "w");
++  /*
+   if (enable_trace)
+     qbb.EnableTracing(trace_output, trace_nodes);
++  */
++  if (enable_trace) {
++    auto last_dot = trace_output_file.find_last_of ('.');
++    auto trace_prefix = trace_output_file;
++    if (last_dot != std::string::npos && last_dot != 0) {
++      trace_prefix = trace_output_file.substr (0, last_dot);
++    }
++    qbb.EnableAscii (trace_prefix, trace_nodes);
++  }
++  // ----- Jalil Morris -----
+ 
+   // dump link speed to trace file
+   {
+diff --git a/src/core/model/default-simulator-impl.cc b/src/core/model/default-simulator-impl.cc
+index f22bc6dca..d8b16fd10 100644
+--- a/src/core/model/default-simulator-impl.cc
++++ b/src/core/model/default-simulator-impl.cc
+@@ -141,6 +141,15 @@ DefaultSimulatorImpl::ProcessOneEvent()
+     m_currentTs = next.key.m_ts;
+     m_currentContext = next.key.m_context;
+     m_currentUid = next.key.m_uid;
++    // ----- Jalil Morris -----
++    /*
++    if (m_currentContext != 0xffffffff) {
++    std::cout << "timestamp=" << m_currentTs << "," <<
++	         "context=" << m_currentContext << "," <<
++		 "uid=" << m_currentUid << std::endl;
++    }
++    */
++    // ----- Jalil Morris -----
+     next.impl->Invoke();
+     next.impl->Unref();
+ 
+diff --git a/src/network/utils/error-model.cc b/src/network/utils/error-model.cc
+index 74dbc633e..5e95f28f2 100644
+--- a/src/network/utils/error-model.cc
++++ b/src/network/utils/error-model.cc
+@@ -260,7 +260,15 @@ bool
+ RateErrorModel::DoCorruptPkt(Ptr<Packet> p)
+ {
+     NS_LOG_FUNCTION(this << p);
++    // --- Jalil
+     return (m_ranvar->GetValue() < m_rate);
++    /* // read error value and threshold
++    auto ranval = m_ranvar->GetValue ();
++    std::cout << "\ncorruption" << std::endl;
++    std::cout << "ranval - " << ranval << std::endl;
++    std::cout << "m_rate - " << m_rate << "\n" << std::endl;
++    return ranval < m_rate; */
++    // --- Jalil
+ }
+ 
+ bool
+diff --git a/src/point-to-point/model/qbb-net-device.cc b/src/point-to-point/model/qbb-net-device.cc
+index df9cd4f44..dfc4e98c1 100644
+--- a/src/point-to-point/model/qbb-net-device.cc
++++ b/src/point-to-point/model/qbb-net-device.cc
+@@ -266,6 +266,76 @@ namespace ns3 {
+ 		DequeueAndTransmit();
+ 	}
+ 
++	// --- Jalil
++	void QbbNetDevice::ReTransmit (void) {
++		// std::cout << "\nretransmit called" << std::endl;
++		/* // print list
++		std::cout << "(" << Simulator::Now () << ")" << " list state:";
++		for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
++			std::cout << "\t" << it->second;
++		}
++		std::cout << std::endl; */
++		// get expired packet
++		auto it = m_outbound.begin ();
++		for ( ; it != m_outbound.end (); it++) {
++			if (Simulator::Now () >= it->second ) {
++				break;
++			}
++		}
++
++		if (it == m_outbound.end ()) {
++			// no expired packets
++			// std::cout << "no expire packets" << std::endl;
++			return;
++		}
++
++		// grab packet
++		auto inputs = it->first;
++		Ptr<Packet> p = inputs.first;
++		Ptr<RdmaQueuePair> qp = inputs.second;
++
++		if (qp->IsFinished ()) {
++			// associated qp is done no need to do anything
++			// std::cout << "qp completed" << std::endl;
++			m_outbound.erase (it);
++			return;
++		}
++
++		// read packet data
++		CustomHeader ch (CustomHeader::L2_Header | CustomHeader::L3_Header | CustomHeader::L4_Header);
++		p->PeekHeader(ch);
++		uint32_t seq = ch.udp.seq;
++		uint32_t size = p->GetSize () - ch.GetSerializedSize ();
++		uint32_t ack = size - seq;
++		/* std::cout << "seq - " << seq << std::endl;
++		std::cout << "size - " << size << std::endl;
++		std::cout << "una - " << qp->snd_una << std::endl; */
++		if ( qp->snd_una < ack ) {
++			// no ack received, rewind
++			qp->snd_nxt = seq;
++			// std::cout << "packet not acked rewinding" << std::endl;
++		} else {
++			// ack received, no issues
++			// std::cout << "packet acked no issues" << std::endl;
++		}
++
++		// remove item
++		m_outbound.erase (it);
++
++		/* // print list
++		std::cout << "(" << Simulator::Now () << ")" << " list state:";
++		for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
++			std::cout << "\t" << it->second;
++		}
++		std::cout << std::endl; */
++		
++		// std::cout << "retransmit done" << std::endl;
++
++		// restart transmission
++		DequeueAndTransmit ();
++	}
++	// --- Jalil
++
+ 	void
+ 		QbbNetDevice::DequeueAndTransmit(void)
+ 	{
+@@ -289,6 +359,23 @@ namespace ns3 {
+ 				m_traceQpDequeue(p, lastQp);
+ 				TransmitStart(p);
+ 
++				// --- Jalil
++				// add re-transmit logic when unacked
++				Time expire = Time (5 * lastQp->m_baseRtt);
++				// add expire search to list
++				std::pair<Ptr<Packet>, Ptr<RdmaQueuePair>> inputs (p->Copy (), lastQp);
++				m_outbound.emplace_back (inputs, expire);
++				// std::cout << "\nsending packet out" << std::endl;
++				Simulator::Schedule(Simulator::Now () + expire, &QbbNetDevice::ReTransmit, this);
++				// std::cout << "resend scheduled\n" << std::endl;
++				/* // print list
++				std::cout << "(" << Simulator::Now() << ")" << " list state:";
++				for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
++					std::cout << "\t" << it->second;
++				}
++				std::cout << std::endl; */
++				// --- Jalil
++
+ 				// update for the next avail time
+ 				m_rdmaPktSent(lastQp, p, m_tInterframeGap);
+ 			}else { // no packet to send
+@@ -364,6 +451,10 @@ namespace ns3 {
+ 
+ 		if (m_receiveErrorModel && m_receiveErrorModel->IsCorrupt(packet))
+ 		{
++			// --- Jalil
++			// packet got corrupted
++			// std::cout << "\npacket corrupted\n" << std::endl;
++			// --- Jalil
+ 			//
+ 			// If we have an error model and it indicates that it is time to lose a
+ 			// corrupted packet, don't forward this packet up, let it go.
+diff --git a/src/point-to-point/model/qbb-net-device.h b/src/point-to-point/model/qbb-net-device.h
+index 4cf2f912f..7e7da6009 100644
+--- a/src/point-to-point/model/qbb-net-device.h
++++ b/src/point-to-point/model/qbb-net-device.h
+@@ -146,6 +146,11 @@ protected:
+ 
+   /// Look for an available packet and send it using TransmitStart(p)
+   virtual void DequeueAndTransmit(void);
++  
++  // --- Jalil
++  // Retransmits packets when not acked 
++  void ReTransmit (void);
++  // --- Morris
+ 
+   /// Resume a paused queue and call DequeueAndTransmit()
+   virtual void Resume(unsigned qIndex);
+@@ -186,6 +191,11 @@ protected:
+   std::vector<ECNAccount> *m_ecn_source;
+ 
+ public:
++  	// --- Jalil
++	// outbound queue
++  	std::list <std::pair<std::pair<Ptr<Packet>,Ptr<RdmaQueuePair>>, Time>> m_outbound;
++	// --- Jalil
++
+ 	Ptr<RdmaEgressQueue> m_rdmaEQ;
+ 	void RdmaEnqueueHighPrioQ(Ptr<Packet> p);
+ 
+diff --git a/src/point-to-point/model/rdma-hw.cc b/src/point-to-point/model/rdma-hw.cc
+index 33743cefb..f3fb6f945 100644
+--- a/src/point-to-point/model/rdma-hw.cc
++++ b/src/point-to-point/model/rdma-hw.cc
+@@ -335,6 +335,7 @@ void RdmaHw::PCIePause(uint32_t nic_idx, uint32_t qIndex){
+ int RdmaHw::ReceiveUdp(Ptr<Packet> p, CustomHeader &ch){
+ 	uint8_t ecnbits = ch.GetIpv4EcnBits();
+ 
++	// ignoring this
+ 	uint32_t payload_size = p->GetSize() - ch.GetSerializedSize();
+ 	// TODO find corresponding rx queue pair
+ 	Ptr<RdmaRxQueuePair> rxQp = GetRxQp(ch.dip, ch.sip, ch.udp.dport, ch.udp.sport, ch.udp.pg, true);
+@@ -352,6 +353,8 @@ int RdmaHw::ReceiveUdp(Ptr<Packet> p, CustomHeader &ch){
+ 
+ 	int x = ReceiverCheckSeq(ch.udp.seq, rxQp, payload_size);
+ 
++	// --- Jalil
++	/*
+ 	if(x !=1 && x!=2){
+ 		std::cout << Simulator::Now().GetNanoSeconds() << " Rx ";
+ 		Ipv4Address(ch.sip).Print(std::cout);
+@@ -360,6 +363,9 @@ int RdmaHw::ReceiveUdp(Ptr<Packet> p, CustomHeader &ch){
+ 		std::cout << " " << ch.udp.dport << " " << ch.udp.seq << " " << ch.udp.pg << " " << p->GetSize() << " " << payload_size;
+ 		std::cout << " ReceiverCheckSeq " << x << std::endl;
+ 	}
++	*/
++	// ignoring this
++	// --- Jalil
+ 
+ 	if (x == 1 || x == 2){ //generate ACK or NACK
+ 		qbbHeader seqh;
+@@ -451,6 +457,8 @@ int RdmaHw::ReceiveAck(Ptr<Packet> p, CustomHeader &ch){
+ 	if (m_ack_interval == 0)
+ 		std::cout << "ERROR: shouldn't receive ack\n";
+ 	else {
++		// --- Jalil
++		/*
+ 		if (!m_backto0){
+ 			qp->Acknowledge(seq);
+ 		}else {
+@@ -460,9 +468,25 @@ int RdmaHw::ReceiveAck(Ptr<Packet> p, CustomHeader &ch){
+ 		if (qp->IsFinished()){
+ 			QpComplete(qp);
+ 		}
++		*/
++		// only ACK on ACKs
++		if ( ch.l3Prot == 0xFD ) {
++			RecoverQueue (qp);
++		} else {
++			qp->Acknowledge (seq);
++			if ( qp->IsFinished () ) {
++				QpComplete (qp);
++			}
++		}
++		// --- Jalil
+ 	}
++	// --- Jalil
++	/*
+ 	if (ch.l3Prot == 0xFD) // NACK
+ 		RecoverQueue(qp);
++	*/
++	// moved above
++	// --- Jalil
+ 
+ 	// handle cnp
+ 	if (cnp){
+@@ -513,6 +537,8 @@ int RdmaHw::ReceiverCheckSeq(uint32_t seq, Ptr<RdmaRxQueuePair> q, uint32_t size
+ 		}
+ 	} else if (seq > expected) {
+ 		// Generate NACK
++		// --- Jalil
++		/*
+ 		if (Simulator::Now() >= q->m_nackTimer || q->m_lastNACK != expected){
+ 			q->m_nackTimer = Simulator::Now() + MicroSeconds(m_nack_interval);
+ 			q->m_lastNACK = expected;
+@@ -520,11 +546,25 @@ int RdmaHw::ReceiverCheckSeq(uint32_t seq, Ptr<RdmaRxQueuePair> q, uint32_t size
+ 				q->ReceiverNextExpectedSeq = q->ReceiverNextExpectedSeq / m_chunk*m_chunk;
+ 			}
+ 			return 2;
++		*/
++		// Only send NACK once to avoid confusion
++		if (q->m_lastNACK != expected){
++			q->m_lastNACK = expected;
++			if (m_backto0){
++				q->ReceiverNextExpectedSeq = q->ReceiverNextExpectedSeq / m_chunk*m_chunk;
++			}
++			return 2;
++		// --- Jalil
+ 		}else
++			// - Jalil: 4 does nothing, means duplicate NACK would be sent
+ 			return 4;
+ 	}else {
+ 		// Duplicate.
+-		return 3;
++		// --- Jalil
++		// return 3;
++		// always ACK
++		return 1;
++		// --- Jalil
+ 	}
+ }
+ void RdmaHw::AddHeader (Ptr<Packet> p, uint16_t protocolNumber){

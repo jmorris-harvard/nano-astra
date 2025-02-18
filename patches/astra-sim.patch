@@ -1,0 +1,295 @@
+diff --git a/astra-sim/network_frontend/ns3/AstraSimNetwork.cc b/astra-sim/network_frontend/ns3/AstraSimNetwork.cc
+index d5751fe..3a79055 100644
+--- a/astra-sim/network_frontend/ns3/AstraSimNetwork.cc
++++ b/astra-sim/network_frontend/ns3/AstraSimNetwork.cc
+@@ -95,17 +95,29 @@ class ASTRASimNetwork : public AstraSim::AstraNetworkAPI {
+         MsgEventKey recv_event_key =
+             make_pair(tag, make_pair(recv_event.src_id, recv_event.dst_id));
+ 
++	// ----- Jalil -----
++	// std::cout << "sim_recv called" << std::endl;
++	// ----- Jalil -----
+         if (received_msg_standby_hash.find(recv_event_key) !=
+             received_msg_standby_hash.end()) {
++	    // ----- Jalil -----
++	    // std::cout << "ns3 has completed transaction" << std::endl;
++	    // ----- Jalil -----
+             // 1) ns3 has already received some message before sim_recv is
+             // called.
+             int received_msg_bytes = received_msg_standby_hash[recv_event_key];
+             if (received_msg_bytes == message_size) {
++	        // ----- Jalil -----
++	        // std::cout << "transaction was just right notifying..." << std::endl;
++	        // ----- Jalil -----
+                 // 1-1) The received message size is same as what we expect.
+                 // Exit.
+                 received_msg_standby_hash.erase(recv_event_key);
+                 recv_event.callHandler();
+             } else if (received_msg_bytes > message_size) {
++	        // ----- Jalil -----
++	        // std::cout << "transaction was too big notifying..." << std::endl;
++	        // ----- Jalil -----
+                 // 1-2) The node received more than expected.
+                 // Do trigger the callback handler for this message, but wait
+                 // for Sys layer to call sim_recv for more messages.
+@@ -113,6 +125,9 @@ class ASTRASimNetwork : public AstraSim::AstraNetworkAPI {
+                     received_msg_bytes - message_size;
+                 recv_event.callHandler();
+             } else {
++	        // ----- Jalil -----
++	        // std::cout << "transaction was too small waiting for more..." << std::endl;
++	        // ----- Jalil -----
+                 // 1-3) The node received less than what we expected.
+                 // Reduce the number of bytes we are waiting to receive.
+                 received_msg_standby_hash.erase(recv_event_key);
+@@ -120,12 +135,29 @@ class ASTRASimNetwork : public AstraSim::AstraNetworkAPI {
+                 sim_recv_waiting_hash[recv_event_key] = recv_event;
+             }
+         } else {
++	    // ----- Jalil -----
++	    // std::cout << "ns3 has not completed transaction" << std::endl;
++	    // ----- Jalil -----
+             // 2) ns3 has not yet received anything.
+             if (sim_recv_waiting_hash.find(recv_event_key) ==
+                 sim_recv_waiting_hash.end()) {
++	        // ----- Jalil -----
++	        // std::cout << "no pending requests so add one" << std::endl;
++	        // ----- Jalil -----
+                 // 2-1) We have not been expecting anything.
+                 sim_recv_waiting_hash[recv_event_key] = recv_event;
++      		// ----- Jalil -----
++		/*
++		std::cout << "map state:" << std::endl;
++		for (const auto& [key, value] : sim_recv_waiting_hash) {
++		  std::cout << "key: (" << key.first << ",(" << key.second.first << "," << key.second.second << "))" << std::endl;
++		}
++		*/
++      		// ----- Jalil -----
+             } else {
++	        // ----- Jalil -----
++	        // std::cout << "pending request, lets just increment" << std::endl;
++	        // ----- Jalil -----
+                 // 2-2) We have already been expecting something.
+                 // Increment the number of bytes we are waiting to receive.
+                 int expecting_msg_bytes =
+diff --git a/astra-sim/network_frontend/ns3/entry.h b/astra-sim/network_frontend/ns3/entry.h
+index 7233b32..ad9cc0e 100644
+--- a/astra-sim/network_frontend/ns3/entry.h
++++ b/astra-sim/network_frontend/ns3/entry.h
+@@ -159,15 +159,32 @@ void notify_receiver_receive_data(int src_id, int dst_id, int message_size,
+                                   int tag) {
+ 
+   MsgEventKey recv_expect_event_key = make_pair(tag, make_pair(src_id, dst_id));
+-
++  // ----- Jalil -----
++  /*
++  cout << "Notify receiver called (" << tag << "," << src_id << "," << dst_id << ")" << endl;
++  std::cout << "map state:" << std::endl;
++  for (const auto& [key, value] : sim_recv_waiting_hash) {
++    std::cout << "key: (" << key.first << ",(" << key.second.first << "," << key.second.second << "))" << std::endl;
++  }
++  */
++  // ----- Jalil -----
+   if (sim_recv_waiting_hash.find(recv_expect_event_key) != sim_recv_waiting_hash.end()) {
++    // ----- Jalil -----
++    // cout << "Sys object is waiting" << endl;
++    // ----- Jalil -----
+     // The Sys object is waiting for packets to arrive.
+     MsgEvent recv_expect_event = sim_recv_waiting_hash[recv_expect_event_key];
+     if (message_size == recv_expect_event.remaining_msg_bytes) {
++      // ----- Jalil -----
++      // cout << "Sys object got exactly" << endl;
++      // ----- Jalil -----
+       // We received exactly the amount of data what Sys object was expecting.
+       sim_recv_waiting_hash.erase(recv_expect_event_key);
+       recv_expect_event.callHandler();
+     } else if (message_size > recv_expect_event.remaining_msg_bytes) {
++      // ----- Jalil -----
++      // cout << "Got too much data" << endl;
++      // ----- Jalil -----
+       // We received more packets than the Sys object is expecting.
+       // Place task in received_msg_standby_hash and wait for Sys object to issue more sim_recv
+       // calls. Call callback handler for the amount Sys object was waiting for.
+@@ -176,6 +193,9 @@ void notify_receiver_receive_data(int src_id, int dst_id, int message_size,
+       sim_recv_waiting_hash.erase(recv_expect_event_key);
+       recv_expect_event.callHandler();
+     } else {
++      // ----- Jalil -----
++      // cout << "Got not enough data" << endl;
++      // ----- Jalil -----
+       // There are still packets to arrive.
+       // Reduce the number of packets we are waiting for. Do not call callback
+       // handler.
+@@ -183,12 +203,21 @@ void notify_receiver_receive_data(int src_id, int dst_id, int message_size,
+       sim_recv_waiting_hash[recv_expect_event_key] = recv_expect_event;
+     }
+   } else {
++    // ----- Jalil -----
++    // cout << "Sys object is not waiting" << endl;
++    // ----- Jalil -----
+     // The Sys object is not yet waiting for packets to arrive.
+     if (received_msg_standby_hash.find(recv_expect_event_key) == received_msg_standby_hash.end()) {
++      // ----- Jalil -----
++      // cout << "Sys object put in standby" << endl;
++      // ----- Jalil -----
+       // Place task in received_msg_standby_hash and wait for Sys object to issue more sim_recv
+       // calls.
+       received_msg_standby_hash[recv_expect_event_key] = message_size;
+     } else {
++      // ----- Jalil -----
++      // cout << "Sys object increment" << endl;
++      // ----- Jalil -----
+       // Sys object is still waiting. Add number of bytes we are waiting for.
+       received_msg_standby_hash[recv_expect_event_key] += message_size;
+     }
+@@ -278,6 +307,7 @@ void qp_finish(FILE *fout, Ptr<RdmaQueuePair> q) {
+   notify_sender_sending_finished(sid, did, q->m_size, tag, q->sport);
+ 
+   // Let receiver knows that it has received packets.
++  // cout << "QPFinish called on (" << sid << "," << did << ") with (" << q->m_size << ") bytes data" << std::endl;
+   notify_receiver_receive_data(sid, did, q->m_size, tag);
+ }
+ 
+diff --git a/astra-sim/system/Roofline.cc b/astra-sim/system/Roofline.cc
+index 46ff91b..aeec60d 100644
+--- a/astra-sim/system/Roofline.cc
++++ b/astra-sim/system/Roofline.cc
+@@ -23,3 +23,11 @@ void Roofline::set_bandwidth(double bandwidth) {
+ double Roofline::get_perf(double operational_intensity) {
+     return min(bandwidth * operational_intensity, peak_perf);
+ }
++
++double Roofline::get_bandwidth (void) {
++  return this->bandwidth;
++}
++
++double Roofline::get_peak_perf (void) {
++  return this->peak_perf;
++}
+diff --git a/astra-sim/system/Roofline.hh b/astra-sim/system/Roofline.hh
+index ce2bf8b..d8c3eda 100644
+--- a/astra-sim/system/Roofline.hh
++++ b/astra-sim/system/Roofline.hh
+@@ -15,6 +15,11 @@ class Roofline {
+     void set_bandwidth(double bandwidth);
+     double get_perf(double operational_intensity);
+ 
++    // ----- Jalil Morris ------
++    double get_bandwidth (void);
++    double get_peak_perf (void);
++    // ----- Jalil Morris ------
++
+   private:
+     double bandwidth;
+     double peak_perf;
+diff --git a/astra-sim/system/Sys.cc b/astra-sim/system/Sys.cc
+index ee2ca85..ce9c9d2 100644
+--- a/astra-sim/system/Sys.cc
++++ b/astra-sim/system/Sys.cc
+@@ -648,6 +648,9 @@ void Sys::handleEvent(void* arg) {
+         delete mehd;
+     } else if (event == EventType::PacketReceived) {
+         RecvPacketEventHandlerData* rcehd = (RecvPacketEventHandlerData*)ehd;
++	// ----- Jalil -----
++	// std::cout << "Packet received event called (" << id << ")" << std::endl;
++	// ----- Jalil -----
+         if (rcehd->workload) {
+             rcehd->workload->call(event, rcehd->wlhd);
+         }
+diff --git a/astra-sim/workload/Workload.cc b/astra-sim/workload/Workload.cc
+index dedd2a0..4e98330 100644
+--- a/astra-sim/workload/Workload.cc
++++ b/astra-sim/workload/Workload.cc
+@@ -214,6 +214,18 @@ void Workload::issue_comp(shared_ptr<Chakra::ETFeederNode> node) {
+             hw_resource->tics_gpu_ops += runtime;
+         }
+         sys->register_event(this, EventType::General, wlhd, runtime);
++
++	// Jalil Morris usage log
++	std::cout << "[tracker] " <<
++		     "compute," << 
++		     sys->id << "," <<
++		     Sys::boostedTick() << "," <<
++		     node->num_ops () << "," <<
++		     node->tensor_size () << "," <<
++		     operational_intensity << "," <<
++		     perf << "," <<
++		     sys->roofline->get_peak_perf () << "," <<
++		     runtime << std::endl;
+     } else {
+         // advance this node forward the recorded "replayed" time specificed in
+         // the ET.
+@@ -318,6 +330,14 @@ void Workload::issue_comm(shared_ptr<Chakra::ETFeederNode> node) {
+         sehd->wlhd = new WorkloadLayerHandlerData;
+         sehd->wlhd->node_id = node->id();
+         sehd->event = EventType::PacketSent;
++        std::cout << "[tracker] " <<
++		     "send,begin," <<
++	             node->id () << "," <<
++		     Sys::boostedTick () << "," <<
++		     node->comm_tag () << "," <<
++	             node->comm_src () << "," <<
++		     node->comm_dst () << "," <<
++		     node->comm_size () << std::endl;
+         sys->front_end_sim_send(0, Sys::dummy_data, node->comm_size(), UINT8,
+                                 node->comm_dst(), node->comm_tag(), &snd_req,
+                                 Sys::FrontEndSendRecvType::NATIVE,
+@@ -329,6 +349,14 @@ void Workload::issue_comm(shared_ptr<Chakra::ETFeederNode> node) {
+         rcehd->wlhd->node_id = node->id();
+         rcehd->workload = this;
+         rcehd->event = EventType::PacketReceived;
++        std::cout << "[tracker] " <<
++		     "recv,begin," <<
++	             node->id () << "," <<
++		     Sys::boostedTick () << "," <<
++		     node->comm_tag () << "," <<
++	             node->comm_src () << "," <<
++		     node->comm_dst () << "," <<
++		     node->comm_size () << std::endl;
+         sys->front_end_sim_recv(0, Sys::dummy_data, node->comm_size(), UINT8,
+                                 node->comm_src(), node->comm_tag(), &rcv_req,
+                                 Sys::FrontEndSendRecvType::NATIVE,
+@@ -391,6 +419,25 @@ void Workload::call(EventType event, CallData* data) {
+                             "node->name={}, node->type={}",
+                             sys->id, Sys::boostedTick(), node->id(),
+                             node->name(), static_cast<uint64_t>(node->type()));
++		if (event == EventType::PacketSent) {
++		  std::cout << "[tracker] " <<
++		     	       "send,end," << 
++			       node->id () << "," <<
++			       Sys::boostedTick () << "," <<
++		     	       node->comm_tag () << "," <<
++	                       node->comm_src () << "," <<
++		               node->comm_dst () << "," <<
++		               node->comm_size () << std::endl; 
++		} else if (event == EventType::PacketReceived) {
++		  std::cout << "[tracker] " <<
++		     	       "recv,end," << 
++			       node->id () << "," <<
++			       Sys::boostedTick () << "," <<
++		     	       node->comm_tag () << "," <<
++	                       node->comm_src () << "," <<
++		               node->comm_dst () << "," <<
++		               node->comm_size () << std::endl; 
++		}
+             }
+ 
+             hw_resource->release(node);
+diff --git a/extern/graph_frontend/chakra b/extern/graph_frontend/chakra
+--- a/extern/graph_frontend/chakra
++++ b/extern/graph_frontend/chakra
+@@ -1 +1 @@
+-Subproject commit 214f2c559c10f897bcc395f8e1502d80d14f1541
++Subproject commit 214f2c559c10f897bcc395f8e1502d80d14f1541-dirty
+diff --git a/extern/network_backend/analytical b/extern/network_backend/analytical
+--- a/extern/network_backend/analytical
++++ b/extern/network_backend/analytical
+@@ -1 +1 @@
+-Subproject commit 599a0473a9a74f5383f73b3cea5a12b9bc5ebaef
++Subproject commit 599a0473a9a74f5383f73b3cea5a12b9bc5ebaef-dirty
+diff --git a/extern/network_backend/ns-3 b/extern/network_backend/ns-3
+--- a/extern/network_backend/ns-3
++++ b/extern/network_backend/ns-3
+@@ -1 +1 @@
+-Subproject commit 40d9153caefb9ac1a6ec316aedad3068cfc0fbc9
++Subproject commit 40d9153caefb9ac1a6ec316aedad3068cfc0fbc9-dirty
