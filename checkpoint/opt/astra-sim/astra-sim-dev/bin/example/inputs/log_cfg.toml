@@ -1,0 +1,8 @@
+[[sink]]
+name = "sink"
+type = "color_stdout_sink_mt"
+
+[[logger]]
+name = "logger"
+sinks = ["sink"]
+level = "trace"

@@ -1,0 +1,2237 @@
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   ../TODO
+	new file:   ./
+	new file:   ../astra-sim-repo
+	new file:   ../includes/__pycache__/astragen.cpython-38.pyc
+	new file:   ../includes/__pycache__/etgenerate.cpython-38.pyc
+	new file:   ../includes/__pycache__/microbench.cpython-38.pyc
+	new file:   ../includes/__pycache__/topgen.cpython-38.pyc
+	new file:   ../includes/astragen.py
+	new file:   ../includes/etgenerate.py
+	new file:   ../includes/microbench.py
+	new file:   ../includes/topgen.py
+	new file:   ../patches/astra-sim.patch
+	new file:   ../patches/chakra.patch
+	new file:   ../patches/ns3.42-AstraSimNetwork-default
+	new file:   ../patches/ns3.patch
+	new file:   ../scripts/configure.py
+	new file:   ../scripts/configure.py.bkp
+	new file:   ../scripts/configure_v2.py
+	new file:   ../scripts/deepworkload.py
+	new file:   ../scripts/dlrm.py
+	new file:   ../scripts/dlrm2.py
+	new file:   ../scripts/dummy.py
+	new file:   ../scripts/duplicator.py
+	new file:   ../scripts/grapher.py
+	new file:   ../scripts/microworkload.py
+	new file:   ../scripts/ns3.py
+	new file:   ../scripts/nsys2workload.py
+	new file:   ../scripts/onnx2workload.bkp.py
+	new file:   ../scripts/onnx2workload.py
+	new file:   ../scripts/power.py
+	new file:   ../scripts/randomize.py
+	new file:   ../scripts/remove-unused-link-2.py
+	new file:   ../scripts/remove-unused-link.py
+	new file:   ../scripts/scaleup.py
+	new file:   ../scripts/timeline.py
+	new file:   ../scripts/topology.py
+	new file:   ../scripts/visualize.py
+	new file:   ../symbolic-tensor-graph
+	new file:   ../test/1022/network.0.json
+	new file:   ../test/1022/network.0.onnx
+	new file:   ../test/1022/network.1.json
+	new file:   ../test/1022/network.1.onnx
+	new file:   ../test/1022/network.2.json
+	new file:   ../test/1022/network.2.onnx
+	new file:   ../test/1022/network.3.json
+	new file:   ../test/1022/network.3.onnx
+	new file:   ../test/1022/network.yaml
+	new file:   ../test/1022/network128.yaml
+	new file:   ../test/1022/network8.new.log
+	new file:   ../test/1022/network8.new.yaml
+	new file:   ../test/1022/network8.yaml
+	new file:   ../test/1022/networking.log
+	new file:   ../test/1022/networksplit.yaml
+	new file:   ../test/1028/llama2-70b.yaml
+	new file:   ../test/1028/network.0.json
+	new file:   ../test/1028/network.0.onnx
+	new file:   ../test/1028/network.1.json
+	new file:   ../test/1028/network.1.onnx
+	new file:   ../test/1028/network.2.json
+	new file:   ../test/1028/network.2.onnx
+	new file:   ../test/1028/network.3.json
+	new file:   ../test/1028/network.3.onnx
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/llama-2-70b-chat-hf-fp16-tp2-b64.yaml
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/llama-2-70b-chat-hf-fp16-tp2-network.zip
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/network.0.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/network.1.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/llama-2-70b-chat-hf-fp16-tp4-b64.yaml
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/llama-2-70b-chat-hf-fp16-tp4-network.zip
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.0.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.1.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.2.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.3.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/llama-2-70b-chat-hf-fp16-tp8-network.zip
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.0.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.1.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.2.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.3.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.4.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.5.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.6.json
+	new file:   ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.7.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp1-network/llama-3.2-3b-fp16-tp1-network.zip
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp1-network/network.0.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp2-network/llama-3.2-3b-fp16-tp2-network.zip
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp2-network/network.0.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp2-network/network.1.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp4-network/llama-3.2-3b-fp16-tp4-network.zip
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp4-network/network.0.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp4-network/network.1.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp4-network/network.2.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp4-network/network.3.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/llama-3.2-3b-fp16-tp8-network.zip
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.0.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.1.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.2.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.3.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.4.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.5.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.6.json
+	new file:   ../test/1104/llama-3.2-3b-fp16-tp8-network/network.7.json
+	new file:   ../test/h4gpu/configuration.yaml
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.0.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.1.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.2.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.3.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.4.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.5.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.6.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.7.et
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/log_cfg.toml
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/memory_cfg.json
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/network_cfg.json
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/ns3_cfg.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/ns3_flow.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/ns3_topology.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/ns3_trace.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/inputs/system_cfg.json
+	new file:   ../test/h4gpu/dgx-llama2-70b/log/err.log
+	new file:   ../test/h4gpu/dgx-llama2-70b/log/log.log
+	new file:   ../test/h4gpu/dgx-llama2-70b/outputs/fct.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/outputs/pfc.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/outputs/qlen.txt
+	new file:   ../test/h4gpu/dgx-llama2-70b/outputs/trace.tr
+	new file:   ../test/h4gpu/dgx-llama2-70b/run.sh
+	new file:   ../test/h4gpu/dgx-llama2-70b/tracker/log.log
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/log_cfg.toml
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/memory_cfg.json
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.0.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.1.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.2.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.3.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.4.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.5.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.6.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.7.et
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/network_cfg.json
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/ns3_cfg.txt
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/ns3_flow.txt
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/ns3_topology.txt
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/ns3_trace.txt
+	new file:   ../test/h4gpu/dgx-network8.new/inputs/system_cfg.json
+	new file:   ../test/h4gpu/dgx-network8.new/log/err.log
+	new file:   ../test/h4gpu/dgx-network8.new/log/log.log
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/fct.txt
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/pfc.txt
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/qlen.txt
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-0-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-1-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-20.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-21.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-22.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-23.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-24.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-25.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-26.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-27.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-28.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-29.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-30.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-31.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-32.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-33.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-34.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-35.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-36.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-10-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-20.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-21.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-22.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-23.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-24.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-25.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-26.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-27.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-28.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-29.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-30.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-31.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-32.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-33.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-34.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-35.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-36.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-11-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-20.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-21.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-22.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-23.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-24.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-25.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-26.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-27.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-28.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-29.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-30.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-31.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-32.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-33.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-34.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-35.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-36.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-12-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-2-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-3-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-4-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-5-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-6-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-7-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-8-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-1.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-10.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-11.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-12.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-13.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-14.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-15.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-16.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-17.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-18.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-19.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-2.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-20.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-21.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-22.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-23.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-24.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-25.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-26.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-27.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-28.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-29.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-3.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-30.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-31.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-32.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-33.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-34.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-35.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-36.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-4.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-5.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-6.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-7.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-8.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace-9-9.tr
+	new file:   ../test/h4gpu/dgx-network8.new/outputs/trace.tr
+	new file:   ../test/h4gpu/dgx-network8.new/run.sh
+	new file:   ../test/h4gpu/dgx-network8.new/tracker/log.log
+	new file:   ../test/h4gpu/dgx-network8/inputs/log_cfg.toml
+	new file:   ../test/h4gpu/dgx-network8/inputs/memory_cfg.json
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.0.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.1.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.2.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.3.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.4.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.5.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.6.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network8/network8.7.et
+	new file:   ../test/h4gpu/dgx-network8/inputs/network_cfg.json
+	new file:   ../test/h4gpu/dgx-network8/inputs/ns3_cfg.txt
+	new file:   ../test/h4gpu/dgx-network8/inputs/ns3_flow.txt
+	new file:   ../test/h4gpu/dgx-network8/inputs/ns3_topology.txt
+	new file:   ../test/h4gpu/dgx-network8/inputs/ns3_trace.txt
+	new file:   ../test/h4gpu/dgx-network8/inputs/system_cfg.json
+	new file:   ../test/h4gpu/dgx-network8/log/err.log
+	new file:   ../test/h4gpu/dgx-network8/log/log.log
+	new file:   ../test/h4gpu/dgx-network8/outputs/fct.txt
+	new file:   ../test/h4gpu/dgx-network8/outputs/pfc.txt
+	new file:   ../test/h4gpu/dgx-network8/outputs/qlen.txt
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-0-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-1-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-20.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-21.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-22.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-23.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-24.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-25.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-26.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-27.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-28.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-29.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-30.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-31.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-32.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-33.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-34.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-35.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-36.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-10-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-20.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-21.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-22.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-23.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-24.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-25.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-26.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-27.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-28.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-29.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-30.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-31.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-32.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-33.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-34.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-35.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-36.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-11-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-20.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-21.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-22.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-23.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-24.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-25.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-26.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-27.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-28.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-29.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-30.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-31.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-32.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-33.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-34.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-35.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-36.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-12-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-2-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-3-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-4-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-5-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-6-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-7-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-8-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-1.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-10.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-11.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-12.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-13.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-14.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-15.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-16.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-17.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-18.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-19.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-2.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-20.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-21.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-22.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-23.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-24.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-25.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-26.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-27.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-28.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-29.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-3.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-30.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-31.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-32.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-33.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-34.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-35.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-36.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-4.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-5.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-6.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-7.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-8.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace-9-9.tr
+	new file:   ../test/h4gpu/dgx-network8/outputs/trace.tr
+	new file:   ../test/h4gpu/dgx-network8/run.sh
+	new file:   ../test/h4gpu/dgx-network8/tracker/log.log
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/log_cfg.toml
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/memory_cfg.json
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/network_cfg.json
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.0.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.1.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.2.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.3.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.4.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.5.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.6.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.7.et
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/ns3_cfg.txt
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/ns3_flow.txt
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/ns3_topology.txt
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/ns3_trace.txt
+	new file:   ../test/h4gpu/dgx-networksplit/inputs/system_cfg.json
+	new file:   ../test/h4gpu/dgx-networksplit/log/err.log
+	new file:   ../test/h4gpu/dgx-networksplit/log/log.log
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/fct.txt
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/pfc.txt
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/qlen.txt
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-0-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-1-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-20.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-21.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-22.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-23.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-24.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-25.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-26.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-27.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-28.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-29.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-30.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-31.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-32.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-33.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-34.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-35.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-36.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-10-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-20.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-21.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-22.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-23.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-24.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-25.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-26.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-27.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-28.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-29.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-30.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-31.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-32.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-33.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-34.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-35.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-36.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-11-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-20.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-21.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-22.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-23.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-24.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-25.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-26.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-27.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-28.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-29.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-30.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-31.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-32.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-33.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-34.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-35.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-36.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-12-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-2-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-3-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-4-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-5-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-6-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-7-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-8-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-1.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-10.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-11.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-12.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-13.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-14.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-15.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-16.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-17.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-18.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-19.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-2.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-20.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-21.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-22.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-23.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-24.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-25.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-26.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-27.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-28.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-29.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-3.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-30.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-31.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-32.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-33.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-34.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-35.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-36.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-4.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-5.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-6.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-7.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-8.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace-9-9.tr
+	new file:   ../test/h4gpu/dgx-networksplit/outputs/trace.tr
+	new file:   ../test/h4gpu/dgx-networksplit/run.sh
+	new file:   ../test/h4gpu/dgx-networksplit/tracker/log.log
+	new file:   ../test/h4gpu/llama2-70b.yaml
+	new file:   ../test/h4gpu/network8.new.yaml
+	new file:   ../test/h4gpu/network8.yaml
+	new file:   ../test/h4gpu/networksplit.yaml
+	new file:   ../test/isca26/a100/1g/configuration.yaml
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/llama-2-70b-chat-hf-fp16-tp2-b64/llama-2-70b-chat-hf-fp16-tp2-b64.0.et
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/llama-2-70b-chat-hf-fp16-tp2-b64/llama-2-70b-chat-hf-fp16-tp2-b64.1.et
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/log_cfg.toml
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/memory_cfg.json
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/network_cfg.json
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_cfg.txt
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_flow.txt
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_topology.txt
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_trace.txt
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/system_cfg.json
+	new file:   ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/run.sh
+	new file:   ../test/isca26/a100/2g/configuration.yaml
+	new file:   ../test/isca26/a100/2g/llama-2-70b-chat-hf-fp16-tp2-b64.yaml
+	new file:   ../test/isca26/a100/4g/configuration.yaml
+	new file:   ../test/isca26/a100/8g/configuration.yaml
+	new file:   ../test/notes.txt
+	new file:   ../test/pentagon/pentagon.yaml
+	new file:   ../test/pentagon/workload.yaml
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+	modified:   ../astra-sim-repo (modified content, untracked content)
+	deleted:    ../symbolic-tensor-graph
+	deleted:    ../test/1022/network.0.json
+	deleted:    ../test/1022/network.0.onnx
+	deleted:    ../test/1022/network.1.json
+	deleted:    ../test/1022/network.1.onnx
+	deleted:    ../test/1022/network.2.json
+	deleted:    ../test/1022/network.2.onnx
+	deleted:    ../test/1022/network.3.json
+	deleted:    ../test/1022/network.3.onnx
+	deleted:    ../test/1022/network.yaml
+	deleted:    ../test/1022/network128.yaml
+	deleted:    ../test/1022/network8.new.log
+	deleted:    ../test/1022/network8.new.yaml
+	deleted:    ../test/1022/network8.yaml
+	deleted:    ../test/1022/networking.log
+	deleted:    ../test/1022/networksplit.yaml
+	deleted:    ../test/1028/llama2-70b.yaml
+	deleted:    ../test/1028/network.0.json
+	deleted:    ../test/1028/network.0.onnx
+	deleted:    ../test/1028/network.1.json
+	deleted:    ../test/1028/network.1.onnx
+	deleted:    ../test/1028/network.2.json
+	deleted:    ../test/1028/network.2.onnx
+	deleted:    ../test/1028/network.3.json
+	deleted:    ../test/1028/network.3.onnx
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/llama-2-70b-chat-hf-fp16-tp2-b64.yaml
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/llama-2-70b-chat-hf-fp16-tp2-network.zip
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/network.0.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp2-network/network.1.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/llama-2-70b-chat-hf-fp16-tp4-b64.yaml
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/llama-2-70b-chat-hf-fp16-tp4-network.zip
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.0.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.1.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.2.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp4-network/network.3.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/llama-2-70b-chat-hf-fp16-tp8-network.zip
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.0.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.1.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.2.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.3.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.4.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.5.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.6.json
+	deleted:    ../test/1104/llama-2-70b-chat-hf-fp16-tp8-network/network.7.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp1-network/llama-3.2-3b-fp16-tp1-network.zip
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp1-network/network.0.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp2-network/llama-3.2-3b-fp16-tp2-network.zip
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp2-network/network.0.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp2-network/network.1.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp4-network/llama-3.2-3b-fp16-tp4-network.zip
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp4-network/network.0.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp4-network/network.1.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp4-network/network.2.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp4-network/network.3.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/llama-3.2-3b-fp16-tp8-network.zip
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.0.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.1.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.2.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.3.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.4.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.5.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.6.json
+	deleted:    ../test/1104/llama-3.2-3b-fp16-tp8-network/network.7.json
+	deleted:    ../test/h4gpu/configuration.yaml
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.0.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.1.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.2.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.3.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.4.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.5.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.6.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/llama2-70b/llama2-70b.7.et
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/log_cfg.toml
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/memory_cfg.json
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/network_cfg.json
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/ns3_cfg.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/ns3_flow.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/ns3_topology.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/ns3_trace.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/inputs/system_cfg.json
+	deleted:    ../test/h4gpu/dgx-llama2-70b/log/err.log
+	deleted:    ../test/h4gpu/dgx-llama2-70b/log/log.log
+	deleted:    ../test/h4gpu/dgx-llama2-70b/outputs/fct.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/outputs/pfc.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/outputs/qlen.txt
+	deleted:    ../test/h4gpu/dgx-llama2-70b/outputs/trace.tr
+	deleted:    ../test/h4gpu/dgx-llama2-70b/run.sh
+	deleted:    ../test/h4gpu/dgx-llama2-70b/tracker/log.log
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/log_cfg.toml
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/memory_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.0.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.1.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.2.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.3.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.4.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.5.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.6.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network8.new/network8.new.7.et
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/network_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/ns3_cfg.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/ns3_flow.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/ns3_topology.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/ns3_trace.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/inputs/system_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8.new/log/err.log
+	deleted:    ../test/h4gpu/dgx-network8.new/log/log.log
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/fct.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/pfc.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/qlen.txt
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-0-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-1-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-20.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-21.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-22.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-23.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-24.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-25.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-26.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-27.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-28.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-29.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-30.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-31.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-32.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-33.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-34.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-35.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-36.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-10-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-20.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-21.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-22.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-23.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-24.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-25.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-26.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-27.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-28.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-29.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-30.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-31.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-32.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-33.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-34.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-35.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-36.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-11-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-20.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-21.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-22.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-23.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-24.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-25.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-26.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-27.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-28.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-29.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-30.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-31.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-32.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-33.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-34.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-35.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-36.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-12-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-2-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-3-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-4-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-5-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-6-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-7-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-8-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-1.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-10.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-11.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-12.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-13.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-14.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-15.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-16.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-17.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-18.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-19.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-2.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-20.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-21.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-22.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-23.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-24.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-25.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-26.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-27.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-28.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-29.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-3.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-30.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-31.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-32.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-33.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-34.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-35.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-36.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-4.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-5.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-6.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-7.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-8.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace-9-9.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/outputs/trace.tr
+	deleted:    ../test/h4gpu/dgx-network8.new/run.sh
+	deleted:    ../test/h4gpu/dgx-network8.new/tracker/log.log
+	deleted:    ../test/h4gpu/dgx-network8/inputs/log_cfg.toml
+	deleted:    ../test/h4gpu/dgx-network8/inputs/memory_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.0.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.1.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.2.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.3.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.4.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.5.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.6.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network8/network8.7.et
+	deleted:    ../test/h4gpu/dgx-network8/inputs/network_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8/inputs/ns3_cfg.txt
+	deleted:    ../test/h4gpu/dgx-network8/inputs/ns3_flow.txt
+	deleted:    ../test/h4gpu/dgx-network8/inputs/ns3_topology.txt
+	deleted:    ../test/h4gpu/dgx-network8/inputs/ns3_trace.txt
+	deleted:    ../test/h4gpu/dgx-network8/inputs/system_cfg.json
+	deleted:    ../test/h4gpu/dgx-network8/log/err.log
+	deleted:    ../test/h4gpu/dgx-network8/log/log.log
+	deleted:    ../test/h4gpu/dgx-network8/outputs/fct.txt
+	deleted:    ../test/h4gpu/dgx-network8/outputs/pfc.txt
+	deleted:    ../test/h4gpu/dgx-network8/outputs/qlen.txt
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-0-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-1-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-20.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-21.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-22.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-23.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-24.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-25.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-26.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-27.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-28.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-29.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-30.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-31.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-32.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-33.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-34.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-35.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-36.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-10-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-20.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-21.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-22.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-23.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-24.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-25.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-26.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-27.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-28.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-29.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-30.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-31.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-32.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-33.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-34.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-35.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-36.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-11-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-20.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-21.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-22.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-23.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-24.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-25.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-26.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-27.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-28.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-29.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-30.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-31.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-32.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-33.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-34.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-35.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-36.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-12-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-2-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-3-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-4-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-5-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-6-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-7-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-8-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-1.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-10.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-11.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-12.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-13.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-14.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-15.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-16.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-17.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-18.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-19.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-2.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-20.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-21.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-22.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-23.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-24.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-25.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-26.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-27.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-28.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-29.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-3.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-30.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-31.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-32.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-33.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-34.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-35.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-36.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-4.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-5.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-6.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-7.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-8.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace-9-9.tr
+	deleted:    ../test/h4gpu/dgx-network8/outputs/trace.tr
+	deleted:    ../test/h4gpu/dgx-network8/run.sh
+	deleted:    ../test/h4gpu/dgx-network8/tracker/log.log
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/log_cfg.toml
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/memory_cfg.json
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/network_cfg.json
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.0.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.1.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.2.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.3.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.4.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.5.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.6.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/networksplit/networksplit.7.et
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/ns3_cfg.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/ns3_flow.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/ns3_topology.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/ns3_trace.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/inputs/system_cfg.json
+	deleted:    ../test/h4gpu/dgx-networksplit/log/err.log
+	deleted:    ../test/h4gpu/dgx-networksplit/log/log.log
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/fct.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/pfc.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/qlen.txt
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-0-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-1-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-20.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-21.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-22.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-23.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-24.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-25.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-26.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-27.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-28.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-29.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-30.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-31.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-32.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-33.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-34.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-35.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-36.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-10-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-20.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-21.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-22.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-23.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-24.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-25.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-26.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-27.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-28.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-29.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-30.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-31.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-32.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-33.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-34.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-35.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-36.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-11-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-20.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-21.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-22.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-23.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-24.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-25.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-26.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-27.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-28.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-29.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-30.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-31.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-32.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-33.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-34.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-35.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-36.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-12-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-2-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-3-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-4-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-5-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-6-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-7-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-8-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-1.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-10.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-11.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-12.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-13.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-14.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-15.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-16.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-17.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-18.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-19.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-2.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-20.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-21.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-22.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-23.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-24.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-25.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-26.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-27.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-28.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-29.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-3.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-30.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-31.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-32.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-33.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-34.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-35.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-36.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-4.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-5.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-6.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-7.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-8.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace-9-9.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/outputs/trace.tr
+	deleted:    ../test/h4gpu/dgx-networksplit/run.sh
+	deleted:    ../test/h4gpu/dgx-networksplit/tracker/log.log
+	deleted:    ../test/h4gpu/llama2-70b.yaml
+	deleted:    ../test/h4gpu/network8.new.yaml
+	deleted:    ../test/h4gpu/network8.yaml
+	deleted:    ../test/h4gpu/networksplit.yaml
+	deleted:    ../test/isca26/a100/1g/configuration.yaml
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/llama-2-70b-chat-hf-fp16-tp2-b64/llama-2-70b-chat-hf-fp16-tp2-b64.0.et
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/llama-2-70b-chat-hf-fp16-tp2-b64/llama-2-70b-chat-hf-fp16-tp2-b64.1.et
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/log_cfg.toml
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/memory_cfg.json
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/network_cfg.json
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_cfg.txt
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_flow.txt
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_topology.txt
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/ns3_trace.txt
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/inputs/system_cfg.json
+	deleted:    ../test/isca26/a100/2g/a100-2-llama-2-70b-chat-hf-fp16-tp2-b64/run.sh
+	deleted:    ../test/isca26/a100/2g/configuration.yaml
+	deleted:    ../test/isca26/a100/2g/llama-2-70b-chat-hf-fp16-tp2-b64.yaml
+	deleted:    ../test/isca26/a100/4g/configuration.yaml
+	deleted:    ../test/isca26/a100/8g/configuration.yaml
+	deleted:    ../test/notes.txt
+

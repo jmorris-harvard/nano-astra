@@ -1,0 +1,7 @@
+# pack-refs with: peeled fully-peeled sorted 
+27bea6c4255dd7cbf6992478cfae628d8db6f75b refs/remotes/origin/divya/fabric-sharing
+bb12dd56fb05980e749736e6dcbd796a918b9256 refs/remotes/origin/divya/fabric-sharing-2.0
+bb12dd56fb05980e749736e6dcbd796a918b9256 refs/remotes/origin/main
+94e3b7ef0745f82d0d99ba65462d94ec5de1b92c refs/tags/1.0.0
+^a0b91db5b65cead210e09988cc2e0840c06568dc
+1859aa5b9f7e1cc269b453161845b97d0a8b1242 refs/tags/1.1.0

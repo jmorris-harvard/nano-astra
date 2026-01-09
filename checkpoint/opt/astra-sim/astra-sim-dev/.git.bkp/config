@@ -1,0 +1,31 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[submodule]
+	active = .
+[remote "origin"]
+	url = https://github.com/astra-sim/astra-sim.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[submodule "extern/graph_frontend/chakra"]
+	url = https://github.com/astra-sim/chakra.git
+[submodule "extern/helper/fmt"]
+	url = https://github.com/fmtlib/fmt.git
+[submodule "extern/helper/spdlog"]
+	url = https://github.com/gabime/spdlog.git
+[submodule "extern/network_backend/analytical"]
+	url = https://github.com/astra-sim/astra-network-analytical.git
+[submodule "extern/network_backend/ns-3"]
+	url = https://github.com/astra-sim/astra-network-ns3.git
+[submodule "extern/remote_memory_backend/analytical"]
+	url = https://github.com/astra-sim/astra-memory-analytical.git
+[branch "feeder_v3"]
+	remote = origin
+	merge = refs/heads/feeder_v3
+[remote "statistics"]
+	url = https://github.com/hxu296/astra-sim.git
+	fetch = +refs/heads/*:refs/remotes/statistics/*

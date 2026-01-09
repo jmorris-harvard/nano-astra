@@ -1,0 +1,16 @@
+{
+  "all-reduce-implementation": [ "direct" ],
+  "all-gather-implementation": [ "direct" ],
+  "reduce-scatter-implementation": [ "direct" ],
+  "all-to-all-implementation": [ "direct" ],
+  "scheduling-policy": "LIFO",
+  "roofline-enabled": 0,
+  "replay-only": 0,
+  "endpoint-delay": 10,
+  "preferred-dataset-splits": 4,
+  "active-chunks-per-dimension": 1,
+  "collective-optimization": "localBWAware",
+  "local-mem-bw": 50,
+  "boost-mode": 0,
+  "trace-enabled": 1
+}

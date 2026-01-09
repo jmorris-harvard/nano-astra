@@ -1,0 +1,20 @@
+Issue: astra-sim-ns3-dev does not accept 0 links in topology file
+  BandAid: Currently adds dummy link to avoid problem
+  Fix: Inspect common.h file
+
+Issue: randomize-workload-astra does not accept non integers as min/max ops/size
+  BandAid: Use integers only
+  Fix: Change input datatype to float and convert to int internally
+
+Improvements:
+  Add DefaultPhyTracer to /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/helper/trace-helper.cc
+
+Important:
+  Statistics addition:
+    Will be somewhat attached to the workload handler data such that it can be sent into the NS3 implementation
+    Send Flow gives new function to NS3 --> Add next logic to RDMA Client Helper
+
+
+STG:
+	Switch to preview branch
+    

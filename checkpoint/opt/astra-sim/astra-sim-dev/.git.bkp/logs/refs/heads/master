@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 8be99b60978cbfb29f107d16dfadf97f19f4ef1e root <root@astra-sim.(none)> 1730746938 +0000	clone: from https://github.com/astra-sim/astra-sim.git
+8be99b60978cbfb29f107d16dfadf97f19f4ef1e 01ea9fc71f054c0fc3b9554af5395c0979d40515 root <root@astra-sim.(none)> 1731476134 -0500	pull: Fast-forward
+01ea9fc71f054c0fc3b9554af5395c0979d40515 4aaca26340f84384a51a7f2c8e31341c5acc43cd jmorris@g.harvard.edu <jmorris@g.harvard.edu> 1739293984 -0500	commit: Jalil logging statements
+4aaca26340f84384a51a7f2c8e31341c5acc43cd f7ddb2796c58404ce26b32baa29e179492e58969 jmorris@g.harvard.edu <jmorris@g.harvard.edu> 1739293990 -0500	pull: Merge made by the 'recursive' strategy.
+f7ddb2796c58404ce26b32baa29e179492e58969 4aaca26340f84384a51a7f2c8e31341c5acc43cd jmorris@g.harvard.edu <jmorris@g.harvard.edu> 1739382932 -0500	reset: moving to 4aaca26
+4aaca26340f84384a51a7f2c8e31341c5acc43cd bafc382dc6450402874a659b4a72f8012d4acb99 jmorris@g.harvard.edu <jmorris@g.harvard.edu> 1740170948 -0500	pull: Merge made by the 'recursive' strategy.

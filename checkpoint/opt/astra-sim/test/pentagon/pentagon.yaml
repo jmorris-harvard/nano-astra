@@ -1,0 +1,73 @@
+pentagon:
+  dims:
+  - all-gather: halving-doubling
+    all-reduce: halving-doubling
+    all-to-all: halving-doubling
+    local-mem-bw: 1555.0
+    npus: 2
+    peak-perf: 156000.0
+    reduce-scatter: halving-doubling
+    valid: true
+  ns3:
+    kmax-map:
+      - 1
+      - 100000000000
+      - 800
+    kmin-map:
+      - 1
+      - 100000000000
+      - 200
+    pmax-map:
+      - 1
+      - 100000000000
+      - 0.2
+    topology:
+      links:
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 0
+        node-b: 1
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 0
+        node-b: 2
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 2
+        node-b: 3
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 3
+        node-b: 1
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 2
+        node-b: 4
+      - bandwidth: 100.0Gbps
+        error-rate: 0.0
+        latency: 0.000055ms
+        node-a: 3
+        node-b: 4
+      switches: 3
+  power:
+    compute:
+    - idle: 50.0
+      nodes: []
+      peak: 400.0
+    link:
+    - idle: 0.0
+      links: []
+      peak: 5.0
+  type: ns3:dev
+  workloads: 
+  - name: workload
+    location: .
+    format: yaml
+
+
+

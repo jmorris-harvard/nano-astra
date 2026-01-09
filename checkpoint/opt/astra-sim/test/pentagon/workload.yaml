@@ -1,0 +1,35 @@
+workload:
+  0:
+    nodes:
+    - data-deps: []
+      id: 0
+      name: '0_4'
+      num-ops: 78197804
+      size: 1764193
+      type: 4
+    - data-deps:
+      - 0
+      dst: 1
+      id: 1
+      name: '1_6'
+      size: 9450
+      src: 0
+      tag: 0
+      type: 5
+  1:
+    nodes:
+    - data-deps: []
+      dst: 1
+      id: 0
+      name: '0_5'
+      size: 9450
+      src: 0
+      tag: 0
+      type: 6
+    - data-deps:
+      - 0
+      id: 1
+      name: '0_4'
+      num-ops: 78197804
+      size: 1764193
+      type: 4

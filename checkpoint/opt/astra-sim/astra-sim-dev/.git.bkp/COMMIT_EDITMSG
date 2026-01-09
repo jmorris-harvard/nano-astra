@@ -1,0 +1,42 @@
+Merge branch 'statistics' of https://github.com/hxu296/astra-sim into feeder_v3
+
+# Conflicts:
+#	astra-sim/workload/Workload.cc
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch feeder_v3
+# Your branch is ahead of 'origin/feeder_v3' by 4 commits.
+#   (use "git push" to publish your local commits)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   CMakeLists.txt
+#	modified:   astra-sim/system/Sys.cc
+#	modified:   astra-sim/system/Sys.hh
+#	modified:   astra-sim/system/collective/ChakraImpl.cc
+#	new file:   astra-sim/workload/LocalMemUsageTracker.cc
+#	new file:   astra-sim/workload/LocalMemUsageTracker.hh
+#	new file:   astra-sim/workload/Statistics.cc
+#	new file:   astra-sim/workload/Statistics.hh
+#	modified:   astra-sim/workload/Workload.cc
+#	modified:   astra-sim/workload/Workload.hh
+#	modified:   examples/network_analytical/system.json
+#	modified:   extern/graph_frontend/chakra
+#
+# Changes not staged for commit:
+#	modified:   extern/graph_frontend/chakra (new commits)
+#	modified:   extern/network_backend/analytical (modified content)
+#	modified:   extern/network_backend/ns-3 (new commits, modified content)
+#
+# Untracked files:
+#	bin/
+#

@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	worktree = ../../../../../extern/network_backend/ns-3
+[remote "origin"]
+	url = https://github.com/astra-sim/astra-network-ns3.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "astra-sim"]
+	remote = origin
+	merge = refs/heads/astra-sim

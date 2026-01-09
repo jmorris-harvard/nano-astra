@@ -1,0 +1,20 @@
+# pack-refs with: peeled fully-peeled sorted 
+762bef86f63eac867c3846aae29e1336af90ff6d refs/remotes/origin/develop
+17efec5296cbc39abb50365c95ce2613804bd58d refs/remotes/origin/divya/fabric-sharing
+2cdefc8c874ce75ef81f2ed786d4926aed2de25a refs/remotes/origin/divya/fabric-sharing-2.0
+ddbe3379a12a05c50d9089c85ea5044e52e8311c refs/remotes/origin/divya/network-fabric-sharing
+599a0473a9a74f5383f73b3cea5a12b9bc5ebaef refs/remotes/origin/main
+4ac1ddb61faff5dbfdb932eb2cc451b6c50b2221 refs/remotes/origin/tutorial
+a035d9ecf4620d3b06e2c6c50b4f0c44db56c44d refs/remotes/origin/will/congestion-multidim
+49e6b41fd92e293b5326ec61f55d39932b9ba2f1 refs/tags/congestion-multidim
+^a035d9ecf4620d3b06e2c6c50b4f0c44db56c44d
+bf416fa61a36a4d5991619498a5ab0c4f3685726 refs/tags/tutorial-asplos2022
+40d800d108ea8364e4a395d46987b108b5d53a92 refs/tags/tutorial-asplos2023
+^4ac1ddb61faff5dbfdb932eb2cc451b6c50b2221
+bf416fa61a36a4d5991619498a5ab0c4f3685726 refs/tags/tutorial-isca2022
+bf416fa61a36a4d5991619498a5ab0c4f3685726 refs/tags/tutorial-mlsys2022
+4a577ae27cf237237bb709fb0c5db29711698697 refs/tags/v1.0.0
+229893c40c398bd57cb879b90abb0a17b51dc8b5 refs/tags/v1.1.0
+0f6d65e7de09b5fa0a5c6e5f9a8a943981d6106c refs/tags/v2.0.0
+d2ab516d961e76b19d38625aaabe44a4e15c4c29 refs/tags/v2.1.0
+762bef86f63eac867c3846aae29e1336af90ff6d refs/tags/v2.2.0
