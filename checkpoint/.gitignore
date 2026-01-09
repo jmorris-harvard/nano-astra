@@ -1,0 +1,7 @@
+*.o
+*.obj
+*.so
+*.so.*
+*.dll
+*.dylib
+**/cmake-cache/
