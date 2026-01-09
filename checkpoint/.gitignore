@@ -5,3 +5,5 @@
 *.dll
 *.dylib
 **/cmake-cache/
+**/objects/
+*.pack
