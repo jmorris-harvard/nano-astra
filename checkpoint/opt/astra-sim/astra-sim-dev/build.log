@@ -1,0 +1,967 @@
+Warn about uninitialized values.
+-- The CXX compiler identification is GNU 10.5.0
+-- The C compiler identification is GNU 10.5.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Using default output directory /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build
+-- Performing Test GCC_WORKING_PEDANTIC_SEMICOLON
+-- Performing Test GCC_WORKING_PEDANTIC_SEMICOLON - Failed
+-- [33mProceeding without cmake-format[0m
+-- Found Git: /usr/bin/git (found version "2.25.1")
+-- MPI was found.
+CMake Warning (dev) at build-support/macros-and-definitions.cmake:850 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  CMakeLists.txt:149 (process_options)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found version "1.71.0")
+-- [33mdocs: doxygen documentation not enabled due to missing dependencies: doxygen dia[0m
+-- Failed to locate sphinx-build executable (missing: SPHINX_EXECUTABLE) 
+-- [33mdocs: sphinx documentation not enabled due to missing dependencies: Sphinx epstopdf pdflatex latexmk convert dvipng dia[0m
+-- Performing Test HAVE_UINT128_T
+-- Performing Test HAVE_UINT128_T - Failed
+-- Performing Test HAVE___UINT128_T
+-- Performing Test HAVE___UINT128_T - Success
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for dirent.h
+-- Looking for dirent.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for signal.h
+-- Looking for signal.h - found
+-- Looking for netpacket/packet.h
+-- Looking for netpacket/packet.h - found
+-- Looking for getenv
+-- Looking for getenv - found
+-- Precompiled headers were enabled
+-- Processing src/antenna
+-- Performing Test HAVE_STD_BESSEL_FUNC
+-- Performing Test HAVE_STD_BESSEL_FUNC - Success
+-- Standard library Bessel function has been found
+-- Processing src/aodv
+-- Processing src/applications
+-- Processing src/bridge
+-- Processing src/brite
+-- [33mSkipping src/brite[0m
+-- Processing src/buildings
+-- Processing src/click
+-- [33mSkipping src/click[0m
+-- Processing src/config-store
+-- Processing src/core
+-- Looking for include files boost/units/quantity.hpp, boost/units/systems/si.hpp
+-- Looking for include files boost/units/quantity.hpp, boost/units/systems/si.hpp - found
+-- Boost Units have been found.
+-- Processing src/csma
+-- Processing src/csma-layout
+-- Processing src/dsdv
+-- Processing src/dsr
+-- Processing src/energy
+-- Processing src/fd-net-device
+-- Looking for net/ethernet.h
+-- Looking for net/ethernet.h - found
+-- Looking for netpacket/packet.h
+-- Looking for netpacket/packet.h - found
+-- Looking for net/if.h
+-- Looking for net/if.h - found
+-- Looking for linux/if_tun.h
+-- Looking for linux/if_tun.h - found
+-- Looking for net/netmap_user.h
+-- Looking for net/netmap_user.h - not found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Processing src/flow-monitor
+-- Processing src/internet
+-- Processing src/internet-apps
+-- Processing src/lr-wpan
+-- Processing src/lte
+-- Processing src/mesh
+-- Processing src/mobility
+-- Processing src/mpi
+-- Processing src/netanim
+-- Processing src/network
+-- Processing src/nix-vector-routing
+-- Processing src/olsr
+-- Processing src/openflow
+-- [33mSkipping src/openflow[0m
+-- Processing src/point-to-point
+-- Processing src/point-to-point-layout
+-- Processing src/propagation
+-- Processing src/sixlowpan
+-- Processing src/spectrum
+-- Processing src/stats
+-- Processing src/tap-bridge
+-- Processing src/topology-read
+-- Processing src/traffic-control
+-- Processing src/uan
+-- Processing src/virtual-net-device
+-- Processing src/wifi
+-- Processing src/wimax
+-- {fmt} version: 11.0.2
+-- Build type: default
+-- Build spdlog: 1.14.1
+-- Found Threads: TRUE
+-- Build type:  default
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so -lpthread (found version "3.6.1")
+-- ---- Summary of ns-3 settings:
+Build profile                 : default
+Build directory               : /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build
+Build with runtime asserts    : [32mON[0m
+Build with runtime logging    : [32mON[0m
+Build version embedding       : OFF (not requested)
+BRITE Integration             : [31mOFF (Missing headers: "Brite.h" and missing libraries: "brite")[0m
+DES Metrics event collection  : OFF (not requested)
+DPDK NetDevice                : OFF (not requested)
+Emulation FdNetDevice         : [32mON[0m
+Examples                      : OFF (not requested)
+File descriptor NetDevice     : [32mON[0m
+GNU Scientific Library (GSL)  : [31mOFF (GSL was not found)[0m
+GtkConfigStore                : [31mOFF (Harfbuzz is required by GTK3 and was not found)[0m
+LibXml2 support               : [31mOFF (LibXML2 was not found)[0m
+MPI Support                   : [32mON[0m
+ns-3 Click Integration        : [31mOFF (Missing headers: "simclick.h" and missing libraries: "nsclick click")[0m
+ns-3 OpenFlow Integration     : [31mOFF (Missing headers: "openflow.h" and missing libraries: "openflow")[0m
+Netmap emulation FdNetDevice  : [31mOFF (missing dependency)[0m
+PyViz visualizer              : [31mOFF (Python Bindings are disabled)[0m
+Python Bindings               : OFF (not requested)
+SQLite support                : [31mOFF (Missing headers: "sqlite3.h" and missing libraries: "sqlite3")[0m
+Eigen3 support                : [31mOFF (Eigen was not found)[0m
+Tap Bridge                    : [32mON[0m
+Tap FdNetDevice               : [32mON[0m
+Tests                         : OFF (not requested)
+
+
+Modules configured to be built:
+antenna                   aodv                      applications              
+bridge                    buildings                 config-store              
+core                      csma                      csma-layout               
+dsdv                      dsr                       energy                    
+fd-net-device             flow-monitor              internet                  
+internet-apps             lr-wpan                   lte                       
+mesh                      mobility                  mpi                       
+netanim                   network                   nix-vector-routing        
+olsr                      point-to-point            point-to-point-layout     
+propagation               sixlowpan                 spectrum                  
+stats                     tap-bridge                topology-read             
+traffic-control           uan                       virtual-net-device        
+wifi                      wimax                     
+
+Modules that cannot be built:
+brite                     click                     openflow                  
+test                      visualizer                
+
+
+-- Configuring done (11.1s)
+-- Generating done (1.4s)
+-- Build files have been written to: /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/cmake-cache
+Finished executing the following commands:
+mkdir cmake-cache
+/usr/local/bin/cmake -S /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3 -B /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/cmake-cache -DCMAKE_BUILD_TYPE=default -DNS3_ASSERT=ON -DNS3_LOG=ON -DNS3_WARNINGS_AS_ERRORS=OFF -DNS3_NATIVE_OPTIMIZATIONS=OFF -DNS3_MPI=ON -G Unix Makefiles --warn-uninitialized
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/spdlog.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/fmt/CMakeFiles/fmt.dir/src/format.cc.o
+[  0%] Building CXX object CMakeFiles/stdlib_pch_exec.dir/cmake_pch.hxx.gch
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/fmt/CMakeFiles/fmt.dir/src/os.cc.o
+[  0%] Building CXX object CMakeFiles/stdlib_pch-default.dir/cmake_pch.hxx.gch
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/async.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/cfg.cpp.o
+[  0%] Building CXX object scratch/AstraSim/extern/helper/spdlog/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o
+[  0%] Linking CXX static library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libfmt.a
+[  2%] Building CXX object CMakeFiles/stdlib_pch_exec.dir/build-support/empty-main.cc.o
+[  2%] Building CXX object CMakeFiles/stdlib_pch-default.dir/build-support/empty.cc.o
+[  2%] Linking CXX executable ns3.42-stdlib_pch_exec-default
+[  2%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/time.cc.o
+[  2%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/int64x64-128.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/list-scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/helper/csv-reader.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/unix-fd-reader.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/helper/random-variable-stream-helper.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/helper/event-garbage-collector.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/event-id.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/map-scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/heap-scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/calendar-scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/priority-queue-scheduler.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/event-impl.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/simulator.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/simulator-impl.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/default-simulator-impl.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/timer.cc.o
+[  4%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/watchdog.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/synchronizer.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/environment-variable.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/log.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/breakpoint.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/type-id.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/attribute-construction-list.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/object-base.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/object.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/test.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/random-variable-stream.cc.o
+[  7%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/rng-seed-manager.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/rng-stream.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/command-line.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/attribute.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/boolean.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/integer.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/uinteger.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/double.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/int64x64.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/string.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/pointer.cc.o
+[  9%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/object-ptr-container.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/object-factory.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/global-value.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/trace-source-accessor.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/config.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/names.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/callback.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/vector.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/fatal-impl.cc.o
+[ 11%] Linking CXX static library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libspdlog.a
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/system-path.cc.o
+[ 11%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/hash-function.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/hash-murmur3.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/hash-fnv.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/hash.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/des-metrics.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/ascii-file.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/node-printer.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/show-progress.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/time-printer.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/system-wall-clock-ms.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/system-wall-clock-timestamp.cc.o
+[ 14%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/length.cc.o
+[ 16%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/trickle-timer.cc.o
+[ 16%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/realtime-simulator-impl.cc.o
+[ 16%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/wall-clock-synchronizer.cc.o
+[ 16%] Building CXX object src/core/CMakeFiles/libcore-obj.dir/model/matrix-array.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/common/Logging.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/BaseStream.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/BasicEventHandlerData.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/CSVWriter.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/CollectivePhase.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/CollectivePlan.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/CommunicatorGroup.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/DataSet.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/JCustom.cc.o
+[ 16%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/JRoofline.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/LogGP.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/MemBus.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/MemEventHandlerData.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/CSVWriter.cc:[m[K In member function ‘[01m[Kvoid AstraSim::CSVWriter::finalize_csv(std::__cxx11::list<std::__cxx11::list<std::pair<long unsigned int, double> > >)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/CSVWriter.cc:121:18:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcompare[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  121 |         uint64_t [01;35m[Kcompare[m[K;
+      |                  [01;35m[K^~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/CSVWriter.cc:[m[K In member function ‘[01m[Kvoid AstraSim::CSVWriter::write_cell(int, int, std::string)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/CSVWriter.cc:191:21:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::__cxx11::basic_string<char>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  191 |     } while ([01;35m[Kstatus != str.length()[m[K);
+      |              [01;35m[K~~~~~~~^~~~~~~~~~~~~~~[m[K
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/MemMovRequest.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/MyPacket.cc.o
+[ 19%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-core-default.so
+[ 19%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/helper/file-helper.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/PacketBundle.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/QueueLevelHandler.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/QueueLevels.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/RecvPacketEventHandlerData.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/RendezvousRecvData.cc.o
+[ 19%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/RendezvousSendData.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:[m[K In member function ‘[01m[Kstd::pair<int, AstraSim::RingTopology::Direction> AstraSim::QueueLevelHandler::get_next_queue_id()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:27:40:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   27 |         queues.size() > 1 && [01;35m[Kallocator >= (queues.size() / 2)[m[K) {
+      |                              [01;35m[K~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:36:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   36 |     if ([01;35m[Kallocator >= queues.size()[m[K) {
+      |         [01;35m[K~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[ 19%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/helper/gnuplot-helper.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:[m[K In member function ‘[01m[Kstd::pair<int, AstraSim::RingTopology::Direction> AstraSim::QueueLevelHandler::get_next_queue_id_first()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:50:25:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   50 |     if ([01;35m[Kfirst_allocator >= queues.size() / 2[m[K) {
+      |         [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:[m[K In member function ‘[01m[Kstd::pair<int, AstraSim::RingTopology::Direction> AstraSim::QueueLevelHandler::get_next_queue_id_last()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/QueueLevelHandler.cc:64:24:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   64 |     if ([01;35m[Klast_allocator >= queues.size()[m[K) {
+      |         [01;35m[K~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[ 21%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/Roofline.cc.o
+[ 21%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/SendPacketEventHandlerData.cc.o
+[ 21%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/boolean-probe.cc.o
+[ 21%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/basic-data-calculators.cc.o
+[ 21%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/SimRecvCaller.cc.o
+[ 21%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/SimSendCaller.cc.o
+[ 21%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/StreamBaseline.cc.o
+[ 21%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/data-calculator.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/data-collection-object.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/data-collector.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/data-output-interface.cc.o
+[ 23%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/Sys.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/double-probe.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/file-aggregator.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/get-wildcard-matches.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/gnuplot-aggregator.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/gnuplot.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/histogram.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/omnet-data-output.cc.o
+[ 23%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/probe.cc.o
+[ 23%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/Usage.cc.o
+[ 23%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/UsageTracker.cc.o
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/time-data-calculators.cc.o
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/time-probe.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:[m[K In constructor ‘[01m[KAstraSim::Sys::Sys(int, std::string, std::string, std::string, AstraSim::AstraRemoteMemoryAPI*, AstraSim::AstraNetworkAPI*, std::vector<int>, std::vector<int>, double, double, bool)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:150:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<AstraSim::Sys*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  150 |     if ([01;35m[K(id + 1) > this->all_sys.size()[m[K) {
+      |         [01;35m[K~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:[m[K In destructor ‘[01m[Kvirtual AstraSim::Sys::~Sys()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:277:6:[m[K [01;35m[Kwarning: [m[Kdeleting object of abstract class type ‘[01m[KJalil::CustomCompute[m[K’ which has non-virtual destructor will cause undefined behavior [[01;35m[K-Wdelete-non-virtual-dtor[m[K]
+  277 |      [01;35m[Kdelete this->compute[m[K;
+      |      [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/time-series-adaptor.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:[m[K In member function ‘[01m[Kint AstraSim::Sys::break_dimension(int)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1137:31:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<int>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+ 1137 |     for (; [01;35m[Kdimension_to_break < physical_dims.size()[m[K; dimension_to_break++) {
+      |            [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1176:64:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<AstraSim::CollectiveImpl*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+ 1176 |             if ([01;35m[Kall_reduce_implementation_per_dimension.size() >[m[K
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+ 1177 | [01;35m[K                dimension_to_break[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~[m[K                              
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1187:68:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<AstraSim::CollectiveImpl*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+ 1187 |             if ([01;35m[Kreduce_scatter_implementation_per_dimension.size() >[m[K
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+ 1188 | [01;35m[K                dimension_to_break[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~[m[K                                  
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1198:64:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<AstraSim::CollectiveImpl*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+ 1198 |             if ([01;35m[Kall_gather_implementation_per_dimension.size() >[m[K
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+ 1199 | [01;35m[K                dimension_to_break[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~[m[K                              
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1209:64:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<AstraSim::CollectiveImpl*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+ 1209 |             if ([01;35m[Kall_to_all_implementation_per_dimension.size() >[m[K
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+ 1210 | [01;35m[K                dimension_to_break[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~[m[K                              
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:[m[K In member function ‘[01m[Kuint64_t AstraSim::Sys::determine_chunk_size(uint64_t&, AstraSim::ComType)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1247:58:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+ 1247 |     if (type != ComType::All_Gather && [01;35m[Kthis->total_nodes > chunk_size[m[K) {
+      |                                        [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:[m[K In member function ‘[01m[Kvoid AstraSim::Sys::ask_for_schedule(int)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1356:73:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::map<int, int>::mapped_type[m[K’ {aka ‘[01m[Kint[m[K’} and ‘[01m[Kstd::vector<AstraSim::Sys*>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+ 1356 |         ready_list.front()->synchronizer[ready_list.front()->stream_id] <
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/Sys.cc:1362:13:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+ 1362 |     if ([01;35m[Kmin > max[m[K) {
+      |         [01;35m[K~~~~^~~~~[m[K
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/uinteger-16-probe.cc.o
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/uinteger-32-probe.cc.o
+[ 26%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/WorkloadLayerHandlerData.cc.o
+[ 26%] Building CXX object src/stats/CMakeFiles/libstats-obj.dir/model/uinteger-8-probe.cc.o
+[ 26%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/Algorithm.cc.o
+[ 26%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/AllToAll.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/ChakraImpl.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/DoubleBinaryTreeAllReduce.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/HalvingDoubling.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/collective/Ring.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/scheduling/OfflineGreedy.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/BinaryTree.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/DoubleBinaryTreeTopology.cc.o
+[ 28%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-stats-default.so
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/GeneralComplexTopology.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/LocalRingGlobalBinaryTree.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/LocalRingNodeA2AGlobalDBT.cc.o
+[ 28%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/Node.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/RingTopology.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/system/topology/Torus3D.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/scheduling/OfflineGreedy.cc:[m[K In member function ‘[01m[Kstd::vector<int> AstraSim::OfflineGreedy::get_chunk_scheduling(long long int, uint64_t&, uint64_t, std::vector<bool>&, AstraSim::InterDimensionScheduling, AstraSim::ComType)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/scheduling/OfflineGreedy.cc:187:69:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  187 |                             if (dim_elapsed_time[searchDim].dim_num ==
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/system/scheduling/OfflineGreedy.cc:276:69:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  276 |                             if (dim_elapsed_time[searchDim].dim_num ==
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/workload/HardwareResource.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/workload/LocalMemUsageTracker.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/workload/Statistics.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/astra-sim/workload/Workload.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/graph_frontend/chakra/schema/protobuf/et_def.pb.cc.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/graph_frontend/chakra/src/feeder_v3/dependancy_solver.cpp.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/graph_frontend/chakra/src/feeder_v3/et_feeder.cpp.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/HardwareResource.cc:8[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/HardwareResource.hh:[m[K In constructor ‘[01m[KAstraSim::HardwareResource::HardwareResource(uint32_t)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/HardwareResource.hh:52:14:[m[K [01;35m[Kwarning: [m[K‘[01m[KAstraSim::HardwareResource::num_in_flight_gpu_comm_ops[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   52 |     uint32_t [01;35m[Knum_in_flight_gpu_comm_ops[m[K;
+      |              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/HardwareResource.hh:51:14:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kuint32_t AstraSim::HardwareResource::num_in_flight_gpu_comp_ops[m[K’ [[01;35m[K-Wreorder[m[K]
+   51 |     uint32_t [01;35m[Knum_in_flight_gpu_comp_ops[m[K;
+      |              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/HardwareResource.cc:16:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   16 | [01;35m[KHardwareResource[m[K::HardwareResource(uint32_t num_npus)
+      | [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/graph_frontend/chakra/src/feeder_v3/et_feeder_node.cpp.o
+[ 30%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/graph_frontend/chakra/src/third_party/utils/protoio.cc.o
+[ 33%] Building CXX object scratch/AstraSim/CMakeFiles/AstraSim.dir/extern/remote_memory_backend/analytical/AnalyticalRemoteMemory.cc.o
+[ 33%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/application-container.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/extern/graph_frontend/chakra/src/feeder_v3/dependancy_solver.cpp:[m[K In member function ‘[01m[Kvoid Chakra::FeederV3::_DependancyLayer::take_node(const NodeId&)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/graph_frontend/chakra/src/feeder_v3/dependancy_solver.cpp:43:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kparents[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   43 |     const auto& [01;35m[Kparents[m[K = this->child_map_parent[node];
+      |                 [01;35m[K^~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/graph_frontend/chakra/src/feeder_v3/dependancy_solver.cpp:[m[K In member function ‘[01m[Kconst std::unordered_set<long unsigned int>& Chakra::FeederV3::_DependancyLayer::get_children(Chakra::FeederV3::NodeId) const[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/graph_frontend/chakra/src/feeder_v3/dependancy_solver.cpp:118:15:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kresults[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  118 |   const auto& [01;35m[Kresults[m[K = this->parent_map_child.at(node);
+      |               [01;35m[K^~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/LocalMemUsageTracker.cc:[m[K In member function ‘[01m[Kvoid AstraSim::LocalMemUsageTracker::recordReads(std::shared_ptr<Chakra::FeederV3::ETFeederNode>, AstraSim::Tick, AstraSim::Tick)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/LocalMemUsageTracker.cc:62:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KparsedCount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   62 |   uint64_t [01;35m[KparsedCount[m[K = parseIOInfos(values, IOinfos);
+      |            [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/LocalMemUsageTracker.cc:[m[K In member function ‘[01m[Kvoid AstraSim::LocalMemUsageTracker::recordWrites(std::shared_ptr<Chakra::FeederV3::ETFeederNode>, AstraSim::Tick, AstraSim::Tick)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/LocalMemUsageTracker.cc:115:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KparsedCount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  115 |   uint64_t [01;35m[KparsedCount[m[K = parseIOInfos(values, IOinfos);
+      |            [01;35m[K^~~~~~~~~~~[m[K
+[ 33%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/application-helper.cc.o
+[ 33%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/delay-jitter-estimation.cc.o
+[ 33%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/net-device-container.cc.o
+[ 33%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/node-container.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/packet-socket-helper.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/simple-net-device-helper.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/helper/trace-helper.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/address.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/application.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/buffer.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/byte-tag-list.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/channel-list.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/Workload.cc:[m[K In member function ‘[01m[Kvoid AstraSim::Workload::issue_send_comm(std::shared_ptr<Chakra::FeederV3::ETFeederNode>)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/Workload.cc:432:13:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kconst unsigned int[m[K’ and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+  432 |     if ([01;35m[Ksrc != this->sys->id[m[K) {
+      |         [01;35m[K~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/Workload.cc:[m[K In member function ‘[01m[Kvoid AstraSim::Workload::issue_recv_comm(std::shared_ptr<Chakra::FeederV3::ETFeederNode>)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/workload/Workload.cc:469:13:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kconst unsigned int[m[K’ and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+  469 |     if ([01;35m[Kdst != this->sys->id[m[K) {
+      |         [01;35m[K~~~~^~~~~~~~~~~~~~~~[m[K
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/channel.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/chunk.cc.o
+[ 35%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/header.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/net-device.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/nix-vector.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/node-list.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/node.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/packet-metadata.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/packet-tag-list.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/packet.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/socket-factory.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/socket.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/tag-buffer.cc.o
+[ 38%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/tag.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/model/trailer.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/address-utils.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/bit-deserializer.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/bit-serializer.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/broadcom-egress-queue.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/crc32.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/custom-header.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/data-rate.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/drop-tail-queue.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/drop-tail-queue-packet.cc.o
+[ 40%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/dynamic-queue-limits.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/error-channel.cc.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/traced-value.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/queue.h:33[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue.h:21[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/broadcom-egress-queue.cc:25[m[K:
+/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h: In instantiation of ‘[01m[Kbool ns3::operator>(const ns3::TracedValue<T>&, const U&) [with T = unsigned int; U = int][m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/broadcom-egress-queue.cc:110:3:[m[K   required from here
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h:490:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kunsigned int[m[K’ and ‘[01m[Kconst int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+  490 |     return [01;35m[Klhs.Get() > rhs[m[K;
+      |            [01;35m[K~~~~~~~~~~^~~~~[m[K
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/error-model.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/ethernet-header.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/ethernet-trailer.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/flow-id-tag.cc.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.cc:22[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.h:[m[K In constructor ‘[01m[Kns3::DropTailQueuePacket::DropTailQueuePacket()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.h:99:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::DropTailQueuePacket::m_bytesInQueue[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   99 |   uint32_t [01;35m[Km_bytesInQueue[m[K;
+      |            [01;35m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/log.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.cc:19[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/log.h:235:47:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kns3::LogComponent& ns3::DropTailQueuePacket::g_log[m[K’ [[01;35m[K-Wreorder[m[K]
+  235 | #define NS_LOG_TEMPLATE_DECLARE LogComponent& [01;35m[Kg_log[m[K
+      |                                               [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.h:96:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KNS_LOG_TEMPLATE_DECLARE[m[K’
+   96 |   [01;36m[KNS_LOG_TEMPLATE_DECLARE[m[K; //!< the log component
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.cc:56:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   56 | [01;35m[KDropTailQueuePacket[m[K::DropTailQueuePacket () :
+      | [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/traced-value.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/queue.h:33[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/queue.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.h:24[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.cc:22[m[K:
+/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h: In instantiation of ‘[01m[Kbool ns3::operator>(const ns3::TracedValue<T>&, const U&) [with T = unsigned int; U = int][m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/drop-tail-queue-packet.cc:118:7:[m[K   required from here
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h:490:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kunsigned int[m[K’ and ‘[01m[Kconst int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+  490 |     return [01;35m[Klhs.Get() > rhs[m[K;
+      |            [01;35m[K~~~~~~~~~~^~~~~[m[K
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/inet-socket-address.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/inet6-socket-address.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/int-header.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/ipv4-address.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/ipv6-address.cc.o
+[ 42%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/llc-snap-header.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/mac16-address.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/mac48-address.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/mac64-address.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/mac8-address.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/net-device-queue-interface.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/output-stream-wrapper.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-burst.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-data-calculators.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-probe.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-socket-address.cc.o
+[ 45%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-socket-client.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-socket-factory.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-socket-server.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packet-socket.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/packetbb.cc.o
+[ 47%] Linking CXX static library ../lib/libAstraSim.a
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/pcap-file-wrapper.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/pcap-file.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/queue-item.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/queue-limits.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/queue-size.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/queue.cc.o
+[ 47%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/radiotap-header.cc.o
+[ 50%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/red-queue.cc.o
+[ 50%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/simple-channel.cc.o
+[ 50%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/simple-net-device.cc.o
+[ 50%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/sll-header.cc.o
+[ 50%] Building CXX object src/network/CMakeFiles/libnetwork-obj.dir/utils/timestamp-tag.cc.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.cc:66[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.h:[m[K In constructor ‘[01m[Kns3::RedQueue::RedQueue()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.h:231:8:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::RedQueue::m_hasRedStarted[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  231 |   bool [01;35m[Km_hasRedStarted[m[K;
+      |        [01;35m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/log.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.cc:59[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/log.h:235:47:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kns3::LogComponent& ns3::RedQueue::g_log[m[K’ [[01;35m[K-Wreorder[m[K]
+  235 | #define NS_LOG_TEMPLATE_DECLARE LogComponent& [01;35m[Kg_log[m[K
+      |                                               [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.h:228:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KNS_LOG_TEMPLATE_DECLARE[m[K’
+  228 |   [01;36m[KNS_LOG_TEMPLATE_DECLARE[m[K; //!< the log component
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.cc:155:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+  155 | [01;35m[KRedQueue[m[K::RedQueue () :
+      | [01;35m[K^~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/traced-value.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/queue.h:33[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/queue.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.h:66[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.cc:66[m[K:
+/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h: In instantiation of ‘[01m[Kbool ns3::operator>(const ns3::TracedValue<T>&, const U&) [with T = unsigned int; U = int][m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/utils/red-queue.cc:248:7:[m[K   required from here
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/core/model/traced-value.h:490:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kunsigned int[m[K’ and ‘[01m[Kconst int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+  490 |     return [01;35m[Klhs.Get() > rhs[m[K;
+      |            [01;35m[K~~~~~~~~~~^~~~~[m[K
+[ 50%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-network-default.so
+[ 50%] Building CXX object src/csma/CMakeFiles/libcsma-obj.dir/helper/csma-helper.cc.o
+[ 52%] Building CXX object src/bridge/CMakeFiles/libbridge-obj.dir/model/bridge-channel.cc.o
+[ 52%] Building CXX object src/bridge/CMakeFiles/libbridge-obj.dir/helper/bridge-helper.cc.o
+[ 52%] Building CXX object src/bridge/CMakeFiles/libbridge-obj.dir/model/bridge-net-device.cc.o
+[ 52%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/distributed-simulator-impl.cc.o
+[ 52%] Building CXX object src/csma/CMakeFiles/libcsma-obj.dir/model/backoff.cc.o
+[ 52%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/granted-time-window-mpi-interface.cc.o
+[ 52%] Building CXX object src/csma/CMakeFiles/libcsma-obj.dir/model/csma-channel.cc.o
+[ 52%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/helper/queue-disc-container.cc.o
+[ 52%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/mpi-interface.cc.o
+[ 52%] Building CXX object src/csma/CMakeFiles/libcsma-obj.dir/model/csma-net-device.cc.o
+[ 52%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/mpi-receiver.cc.o
+[ 52%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/null-message-mpi-interface.cc.o
+[ 54%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/null-message-simulator-impl.cc.o
+[ 54%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/helper/traffic-control-helper.cc.o
+[ 54%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/cobalt-queue-disc.cc.o
+[ 54%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/remote-channel-bundle-manager.cc.o
+[ 54%] Building CXX object src/mpi/CMakeFiles/libmpi-obj.dir/model/remote-channel-bundle.cc.o
+[ 54%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/codel-queue-disc.cc.o
+[ 54%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/fifo-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/fq-cobalt-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/fq-codel-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/fq-pie-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/mq-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/packet-filter.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/pfifo-fast-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/pie-queue-disc.cc.o
+[ 57%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-bridge-default.so
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/prio-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/red-queue-disc.cc.o
+[ 57%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/tbf-queue-disc.cc.o
+[ 59%] Building CXX object src/traffic-control/CMakeFiles/libtraffic-control-obj.dir/model/traffic-control-layer.cc.o
+[ 59%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-mpi-default.so
+[ 59%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-csma-default.so
+[ 59%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-traffic-control-default.so
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/internet-trace-helper.cc.o
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/internet-stack-helper.cc.o
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-address-helper.cc.o
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-global-routing-helper.cc.o
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-interface-container.cc.o
+[ 59%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-list-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv6-address-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv4-static-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv6-interface-container.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv6-list-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv6-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ipv6-static-routing-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/neighbor-cache-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/rip-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/helper/ripng-helper.cc.o
+[ 61%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/arp-cache.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/arp-header.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/arp-l3-protocol.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/arp-queue-disc-item.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/candidate-queue.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/global-route-manager-impl.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/global-route-manager.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/global-router-interface.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/icmpv4-l4-protocol.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/icmpv4.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/icmpv6-header.cc.o
+[ 64%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/icmpv6-l4-protocol.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ip-l4-protocol.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-address-generator.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-end-point-demux.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-end-point.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-global-routing.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-header.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-interface-address.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-interface.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-l3-protocol.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-list-routing.cc.o
+[ 66%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-packet-filter.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-packet-info-tag.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-packet-probe.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-queue-disc-item.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-raw-socket-factory-impl.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-raw-socket-factory.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-raw-socket-impl.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-route.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-routing-protocol.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-routing-table-entry.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4-static-routing.cc.o
+[ 69%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv4.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-address-generator.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-autoconfigured-prefix.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-end-point-demux.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-end-point.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-extension-demux.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-extension-header.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-extension.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-header.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-interface-address.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-interface.cc.o
+[ 71%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-l3-protocol.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-list-routing.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-option-demux.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-option-header.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-option.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-packet-info-tag.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-packet-filter.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-packet-probe.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-pmtu-cache.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-queue-disc-item.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-raw-socket-factory-impl.cc.o
+[ 73%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-raw-socket-factory.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-raw-socket-impl.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-route.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-routing-protocol.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-routing-table-entry.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6-static-routing.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ipv6.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/loopback-net-device.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ndisc-cache.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/rip-header.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/rip.cc.o
+[ 76%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ripng-header.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/ripng.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/rtt-estimator.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-bbr.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-bic.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-congestion-ops.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-cubic.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-dctcp.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-header.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-highspeed.cc.o
+[ 78%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-htcp.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-hybla.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-illinois.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-l4-protocol.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-ledbat.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-linux-reno.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-lp.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option-rfc793.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option-sack-permitted.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option-sack.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option-ts.cc.o
+[ 80%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option-winscale.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-option.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-prr-recovery.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-rate-ops.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-recovery-ops.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-rx-buffer.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-scalable.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-socket-base.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-socket-factory-impl.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-socket-factory.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-socket-state.cc.o
+[ 83%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-socket.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-tx-buffer.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-tx-item.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-vegas.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-veno.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-westwood-plus.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/tcp-yeah.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-header.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-l4-protocol.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-socket-factory-impl.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-socket-factory.cc.o
+[ 85%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-socket-impl.cc.o
+[ 88%] Building CXX object src/internet/CMakeFiles/libinternet-obj.dir/model/udp-socket.cc.o
+[ 88%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-internet-default.so
+[ 88%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/helper/qbb-helper.cc.o
+[ 88%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/point-to-point-remote-channel.cc.o
+[ 88%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/helper/point-to-point-helper.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/pause-header.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/cn-header.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/pint.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/point-to-point-channel.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/point-to-point-net-device.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/ppp-header.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/qbb-channel.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/qbb-header.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/qbb-net-device.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:21:[m[K [01;35m[Kwarning: [m[K"__STDC_LIMIT_MACROS" redefined
+   21 | #define __STDC_LIMIT_MACROS 1
+      | 
+In file included from [01m[K/usr/include/c++/10/cstdint:41[m[K,
+                 from [01m[K/usr/include/c++/10/bits/char_traits.h:727[m[K,
+                 from [01m[K/usr/include/c++/10/string:40[m[K,
+                 from [01m[K/usr/include/c++/10/bits/locale_classes.h:40[m[K,
+                 from [01m[K/usr/include/c++/10/bits/ios_base.h:41[m[K,
+                 from [01m[K/usr/include/c++/10/streambuf:41[m[K,
+                 from [01m[K/usr/include/c++/10/bits/streambuf_iterator.h:35[m[K,
+                 from [01m[K/usr/include/c++/10/iterator:66[m[K,
+                 from [01m[K/usr/include/c++/10/bits/ranges_algobase.h:36[m[K,
+                 from [01m[K/usr/include/c++/10/bits/ranges_algo.h:35[m[K,
+                 from [01m[K/usr/include/c++/10/algorithm:64[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/cmake-cache/CMakeFiles/stdlib_pch-default.dir/cmake_pch.hxx:5[m[K,
+                 from [01m[K<command-line>[m[K:
+[01m[K/usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h:5:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+    5 | #  define __STDC_LIMIT_MACROS
+      | 
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/model/packet.h:23[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/model/net-device.h:24[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/net-device.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/point-to-point-net-device.h:25[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/point-to-point-net-device.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.h:23[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/qbb-net-device.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:24[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/network/model/byte-tag-list.h:22:[m[K [01;35m[Kwarning: [m[K"__STDC_LIMIT_MACROS" redefined
+   22 | #define __STDC_LIMIT_MACROS
+      | 
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:21:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+   21 | #define __STDC_LIMIT_MACROS 1
+      | 
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/qbb-remote-channel.cc.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.cc:23[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:[m[K In constructor ‘[01m[Kns3::CnHeader::CnHeader(uint16_t, uint8_t, uint8_t, uint16_t, uint16_t)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:93:14:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::CnHeader::<unnamed union>::<unnamed struct>::m_qfb[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   93 |     uint16_t [01;35m[Km_qfb[m[K;
+      |              [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:90:11:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kuint8_t ns3::CnHeader::m_ecnBits[m[K’ [[01;35m[K-Wreorder[m[K]
+   90 |   uint8_t [01;35m[Km_ecnBits[m[K;
+      |           [01;35m[K^~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.cc:34:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   34 | [01;35m[KCnHeader[m[K::CnHeader (const uint16_t fid, uint8_t qIndex, uint8_t ecnbits, uint16_t qfb, uint16_t total)
+      | [01;35m[K^~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.cc:23[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:[m[K In constructor ‘[01m[Kns3::CnHeader::CnHeader()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:93:14:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::CnHeader::<unnamed union>::<unnamed struct>::m_qfb[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   93 |     uint16_t [01;35m[Km_qfb[m[K;
+      |              [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.h:90:11:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kuint8_t ns3::CnHeader::m_ecnBits[m[K’ [[01;35m[K-Wreorder[m[K]
+   90 |   uint8_t [01;35m[Km_ecnBits[m[K;
+      |           [01;35m[K^~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/cn-header.cc:48:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   48 | [01;35m[KCnHeader[m[K::CnHeader ()
+      | [01;35m[K^~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.cc:3[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:[m[K In constructor ‘[01m[Kns3::qbbHeader::qbbHeader(uint16_t)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:68:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::qbbHeader::m_pg[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   68 |   uint16_t [01;35m[Km_pg[m[K;
+      |            [01;35m[K^~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:66:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kuint16_t ns3::qbbHeader::sport[m[K’ [[01;35m[K-Wreorder[m[K]
+   66 |   uint16_t [01;35m[Ksport[m[K, dport;
+      |            [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.cc:14:2:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   14 |  [01;35m[KqbbHeader[m[K::qbbHeader(uint16_t pg)
+      |  [01;35m[K^~~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.cc:3[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:[m[K In constructor ‘[01m[Kns3::qbbHeader::qbbHeader()[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:68:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kns3::qbbHeader::m_pg[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+   68 |   uint16_t [01;35m[Km_pg[m[K;
+      |            [01;35m[K^~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.h:66:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kuint16_t ns3::qbbHeader::sport[m[K’ [[01;35m[K-Wreorder[m[K]
+   66 |   uint16_t [01;35m[Ksport[m[K, dport;
+      |            [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-header.cc:19:2:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   19 |  [01;35m[KqbbHeader[m[K::qbbHeader()
+      |  [01;35m[K^~~~~~~~~[m[K
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/rdma-driver.cc.o
+[ 90%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/rdma-hw.cc.o
+[ 92%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/rdma-queue-pair.cc.o
+[ 92%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/switch-mmu.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:[m[K In member function ‘[01m[Kint ns3::RdmaEgressQueue::GetNextQindex(bool*)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:108:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksender_node[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  108 |     int [01;35m[Ksender_node[m[K = qp->GetSrc();
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:109:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kreceiver_node[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  109 |     int [01;35m[Kreceiver_node[m[K = qp->GetDest();
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:110:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktag[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  110 |     int [01;35m[Ktag[m[K = qp->GetTag();
+      |         [01;35m[K^~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:111:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kt_count[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  111 |     int [01;35m[Kt_count[m[K = qp->GetInitialSize();
+      |         [01;35m[K^~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:127:38:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint32_t[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  127 |    for (int i = min_finish_id + 1; [01;35m[Ki < fcount[m[K; i++) if (!qps[i]->IsFinished()){
+      |                                    [01;35m[K~~^~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:95:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kfound[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   95 |   bool [01;35m[Kfound[m[K = false;
+      |        [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:[m[K In member function ‘[01m[Kvirtual void ns3::QbbNetDevice::Receive(ns3::Ptr<ns3::Packet>)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/qbb-net-device.cc:504:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kret[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  504 |     int [01;35m[Kret[m[K = m_rdmaReceiveCb(packet, ch);
+      |         [01;35m[K^~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/helper/qbb-helper.cc:[m[K In member function ‘[01m[Kvoid ns3::QbbHelper::EnableTracingDevice(FILE*, ns3::Ptr<ns3::QbbNetDevice>)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/helper/qbb-helper.cc:401:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Knodeid[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  401 |  uint32_t [01;35m[Knodeid[m[K = nd->GetNode ()->GetId ();
+      |           [01;35m[K^~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/helper/qbb-helper.cc:402:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdeviceid[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  402 |  uint32_t [01;35m[Kdeviceid[m[K = nd->GetIfIndex ();
+      |           [01;35m[K^~~~~~~~[m[K
+[ 92%] Building CXX object src/point-to-point/CMakeFiles/libpoint-to-point-obj.dir/model/switch-node.cc.o
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kint ns3::RdmaHw::ReceiveCnp(ns3::Ptr<ns3::Packet>, ns3::CustomHeader&)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:425:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kecnbits[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  425 |  uint8_t [01;35m[Kecnbits[m[K = ch.cnp.ecnBits;
+      |          [01;35m[K^~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:426:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kqfb[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  426 |  uint16_t [01;35m[Kqfb[m[K = ch.cnp.qfb;
+      |           [01;35m[K^~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:427:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktotal[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  427 |  uint16_t [01;35m[Ktotal[m[K = ch.cnp.total;
+      |           [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:429:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ki[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  429 |  uint32_t [01;35m[Ki[m[K;
+      |           [01;35m[K^[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kint ns3::RdmaHw::ReceiveAck(ns3::Ptr<ns3::Packet>, ns3::CustomHeader&)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:463:6:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ki[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  463 |  int [01;35m[Ki[m[K;
+      |      [01;35m[K^[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kint ns3::RdmaHw::ReceiverCheckSeq(uint32_t, ns3::Ptr<ns3::RdmaRxQueuePair>, uint32_t)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:544:34:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint32_t[m[K’ {aka ‘[01m[Kunsigned int[m[K’} and ‘[01m[Kint32_t[m[K’ {aka ‘[01m[Kint[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  544 |   if ([01;35m[Kq->ReceiverNextExpectedSeq >= q->m_milestone_rx[m[K){
+      |       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kvoid ns3::RdmaHw::UpdateRateHp(ns3::Ptr<ns3::RdmaQueuePair>, ns3::Ptr<ns3::Packet>, ns3::CustomHeader&, bool)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:879:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KinStable[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  879 |    bool [01;35m[KinStable[m[K = false;
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:858:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kprint[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  858 |  bool [01;35m[Kprint[m[K = !fast_react || true;
+      |       [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kvoid ns3::RdmaHw::UpdateRateTimely(ns3::Ptr<ns3::RdmaQueuePair>, ns3::Ptr<ns3::Packet>, ns3::CustomHeader&, bool)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:1037:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kprint[m[K’ [[01;35m[K-Wunused-variable[m[K]
+ 1037 |  bool [01;35m[Kprint[m[K = !us;
+      |       [01;35m[K^~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:[m[K In member function ‘[01m[Kvoid ns3::RdmaHw::HandleAckHpPint(ns3::Ptr<ns3::RdmaQueuePair>, ns3::Ptr<ns3::Packet>, ns3::CustomHeader&)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/model/rdma-hw.cc:1162:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint32_t[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+ 1162 |        if ([01;35m[Krand() % 65536 >= pint_smpl_thresh[m[K)
+      |            [01;35m[K~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~[m[K
+[ 92%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-point-to-point-default.so
+[ 92%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/on-off-helper.cc.o
+[ 92%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/bulk-send-helper.cc.o
+[ 92%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/packet-sink-helper.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/rdma-client-helper.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/udp-client-server-helper.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/udp-echo-helper.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/application-packet-probe.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/bulk-send-application.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/helper/three-gpp-http-helper.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/onoff-application.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/packet-loss-counter.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/packet-sink.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/rdma-client.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/seq-ts-echo-header.cc.o
+[ 95%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/seq-ts-header.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/seq-ts-size-header.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/three-gpp-http-client.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/three-gpp-http-header.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/three-gpp-http-server.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/three-gpp-http-variables.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/udp-client.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/udp-echo-client.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/udp-echo-server.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/udp-server.cc.o
+[ 97%] Building CXX object src/applications/CMakeFiles/libapplications-obj.dir/model/udp-trace-client.cc.o
+[ 97%] Linking CXX shared library /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/lib/libns3.42-applications-default.so
+[100%] Building CXX object scratch/CMakeFiles/scratch_AstraSimNetwork.dir/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc.o
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/include/ns3/sim-setting.h:1[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/scratch/../scratch/common.h:35[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/entry.h:4[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc:6[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/helper/sim-setting.h:[m[K In member function ‘[01m[Kvoid SimSetting::Serialize(FILE*)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/src/point-to-point/helper/sim-setting.h:19:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kj[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+   19 |    for (auto [01;35m[Kj[m[K : i.second)
+      |              [01;35m[K^[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc:[m[K In member function ‘[01m[Kvirtual int ASTRASimNetwork::sim_recv(void*, uint64_t, int, int, int, AstraSim::sim_request*, void (*)(void*), void*)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc:153:36:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  153 |             if ([01;35m[Kreceived_msg_bytes == message_size[m[K) {
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~[m[K
+[01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc:161:43:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  161 |             } else if ([01;35m[Kreceived_msg_bytes > message_size[m[K) {
+      |                        [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/entry.h:4[m[K,
+                 from [01m[K/opt/astra-sim/astra-sim-dev/astra-sim/network_frontend/ns3/AstraSimNetwork.cc:6[m[K:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/scratch/../scratch/common.h:[m[K In function ‘[01m[Kuint64_t get_nic_rate(ns3::NodeContainer&)[m[K’:
+[01m[K/opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/scratch/../scratch/common.h:513:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  513 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[100%] Linking CXX executable /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/scratch/ns3.42-AstraSimNetwork-default
+/usr/bin/ld: lib/libAstraSim.a(JRoofline.cc.o): in function `Jalil::CustomRoofline::CustomRoofline(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >)':
+/opt/astra-sim/astra-sim-dev/astra-sim/system/JRoofline.cc:10: undefined reference to `vtable for Jalil::CustomRoofline'
+collect2: error: ld returned 1 exit status
+make[3]: *** [scratch/CMakeFiles/scratch_AstraSimNetwork.dir/build.make:149: /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/build/scratch/ns3.42-AstraSimNetwork-default] Error 1
+make[2]: *** [CMakeFiles/Makefile2:5095: scratch/CMakeFiles/scratch_AstraSimNetwork.dir/all] Error 2
+make[1]: *** [CMakeFiles/Makefile2:5101: scratch/CMakeFiles/scratch_AstraSimNetwork.dir/rule] Error 2
+make: *** [Makefile:1950: scratch_AstraSimNetwork] Error 2
+Finished executing the following commands:
+/usr/local/bin/cmake --build /opt/astra-sim/astra-sim-dev/extern/network_backend/ns-3/cmake-cache -j 12 --target scratch_AstraSimNetwork

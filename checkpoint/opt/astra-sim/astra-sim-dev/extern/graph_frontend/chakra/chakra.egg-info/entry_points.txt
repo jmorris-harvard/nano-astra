@@ -1,0 +1,7 @@
+[console_scripts]
+chakra_converter = chakra.src.converter.converter:main
+chakra_generator = chakra.src.generator.generator:main
+chakra_jsonizer = chakra.src.jsonizer.jsonizer:main
+chakra_timeline_visualizer = chakra.src.timeline_visualizer.timeline_visualizer:main
+chakra_trace_link = chakra.src.trace_link.trace_link:main
+chakra_visualizer = chakra.src.visualizer.visualizer:main

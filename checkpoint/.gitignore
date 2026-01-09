@@ -7,3 +7,5 @@
 **/cmake-cache/
 **/objects/
 *.pack
+**/CMakeFiles/
+

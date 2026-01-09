@@ -1,0 +1,18 @@
+[2024-11-11 14:47:18.491] [system::topology::RingTopology] [info] ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1 total nodes in ring: 2
+[2024-11-11 14:47:18.491] [system::topology::RingTopology] [info] ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1 total nodes in ring: 2
+[2024-11-11 14:47:18.491] [system::topology::RingTopology] [info] ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1 total nodes in ring: 2
+[2024-11-11 14:47:18.491] [system::topology::RingTopology] [info] ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1 total nodes in ring: 2
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=0, tick=0, node->id=0, node->name=0_COMP_0_500, node->type=4
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=1, tick=0, node->id=0, node->name=1_COMP_0_2500, node->type=4
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=0, tick=100000, node->id=0, node->name=0_COMP_0_500, node->type=4
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=0, tick=100000, node->id=1, node->name=0_SEND_1_500, node->type=5
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=0, tick=100000, node->id=2, node->name=0_RECV_2_500, node->type=6
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=0, tick=100109, node->id=1, node->name=0_SEND_1_500, node->type=5
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=1, tick=500000, node->id=0, node->name=1_COMP_0_2500, node->type=4
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=1, tick=500000, node->id=1, node->name=1_RECV_1_500, node->type=6
+[2024-11-11 14:47:18.492] [workload] [debug] issue,sys->id=1, tick=500000, node->id=2, node->name=1_SEND_2_500, node->type=5
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=1, tick=500000, node->id=1, node->name=1_RECV_1_500, node->type=6
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=1, tick=500109, node->id=2, node->name=1_SEND_2_500, node->type=5
+[2024-11-11 14:47:18.492] [workload] [info] sys[1] finished, 500109 cycles, exposed communication 109 cycles.
+[2024-11-11 14:47:18.492] [workload] [debug] callback,sys->id=0, tick=500109, node->id=2, node->name=0_RECV_2_500, node->type=6
+[2024-11-11 14:47:18.492] [workload] [info] sys[0] finished, 500109 cycles, exposed communication 400109 cycles.
