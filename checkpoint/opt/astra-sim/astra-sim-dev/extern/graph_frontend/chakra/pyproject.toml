@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-grpc"]
+requires = ["protobuf==5.29.0", "setuptools", "setuptools-grpc"]
 build-backend = "setuptools.build_meta"
 
 [project]
