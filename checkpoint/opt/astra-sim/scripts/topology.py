@@ -11,26 +11,30 @@ import yaml
 from enum import Enum
 
 from topgen import (
-  A100,
+  A100SXM,
   DGXA100,
-  DGXH100,
+  DGXH200,
   SUA100,
   SuperPodA100,
   SuperSpineA100,
   FatTree,
   LeafSpine,
-  JellyFish
+  JellyFish,
+  Infiniband_200G,
+  InfinibandSwitch_200G,
+  Infiniband_400G,
+  InfinibandSwitch_400G
 )
 
 def generate (topology, filename, target_design, verbose = False, k = 2, N = 40, racks = 4, interconnects = 2):
   # determine which topology to load
   dut = None
   if topology.lower () == 'A100'.lower ():
-    dut = A100 ()
+    dut = A100SXM ()
   elif topology.lower () == 'DGXA100'.lower ():
     dut = DGXA100 ()
-  elif topology.lower () == 'DGXH100'.lower ():
-    dut = DGXH100 ()
+  elif topology.lower () == 'DGXH200'.lower ():
+    dut = DGXH200 ()
   elif topology.lower () == 'SUA100'.lower ():
     dut = SUA100 ()
   elif topology.lower () == 'SuperPodA100'.lower ():
@@ -39,10 +43,22 @@ def generate (topology, filename, target_design, verbose = False, k = 2, N = 40,
     dut = SuperSpineA100 ()
   elif topology.lower () == 'FatTree'.lower ():
     dut = FatTree (k, N)
+  elif topology.lower () == 'DGXA100_FatTree'.lower ():
+    dut = FatTree (k = k, N = N, ComputeType = DGXA100, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G)
+  elif topology.lower () == 'DGXH200_FatTree'.lower ():
+    dut = FatTree (k = k, N = N, ComputeType = DGXH200, SwitchType = InfinibandSwitch_400G, LinkType = Infiniband_400G)
   elif topology.lower () == 'LeafSpine'.lower ():
     dut = LeafSpine (k, N)
+  elif topology.lower () == 'DGXA100_LeafSpine'.lower ():
+    dut = LeafSpine (k = k, N = N, ComputeType = DGXA100, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G)
+  elif topology.lower () == 'DGXH200_LeafSpine'.lower ():
+    dut = LeafSpine (k = k, N = N, ComputeType = DGXH200, SwitchType = InfinibandSwitch_400G, LinkType = Infiniband_400G)
   elif topology.lower () == 'JellyFish'.lower ():
     dut = JellyFish (k = k, P = N, N = racks, r = interconnects)
+  elif topology.lower () == 'DGXA100_JellyFish'.lower ():
+    dut = JellyFish (k = k, P = N, N = racks, r = interconnects, ComputeType = DGXA100, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G)
+  elif topology.lower () == 'DGXH200_JellyFish'.lower ():
+    dut = JellyFish (k = k, P = N, N = racks, r = interconnects, ComputeType = DGXH200, SwitchType = InfinibandSwitch_400G, LinkType = Infiniband_400G)
   else:
     print ('Invalid sample topology request given (%s)' % (topology))
     sys.exit (1)

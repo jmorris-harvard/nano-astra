@@ -7,8 +7,8 @@ using namespace AstraSim;
 using namespace std;
 
 ComputeBlock::ComputeBlock (
-    uint64_t node, uint64_t start, uint64_t end, double cu, double mu) :
-  _node (node), _start (start), _end (end), _cu (cu), _mu (mu) {}
+    uint64_t node, uint64_t start, uint64_t end, double cu, double mu, double power) :
+  _node (node), _start (start), _end (end), _cu (cu), _mu (mu), _power (power) {}
 
 const vector<StatisticsType> BasicComputeStatistics::_targets = {
   StatisticsType::Computation  
@@ -27,7 +27,8 @@ void BasicComputeStatistics::addInternal (Jalil::ComputeEventHandlerData *cehd) 
     cehd->start_time,
     cehd->end_time,
     cehd->compute_utilization,
-    cehd->memory_utilization
+    cehd->memory_utilization,
+    cehd->power
   );
 }
 

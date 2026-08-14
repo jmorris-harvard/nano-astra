@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: chakra
 Version: 0.0.4
 Author-email: MLCommons <chakra@mlcommons.org>
@@ -190,7 +190,8 @@ Requires-Dist: protobuf==5.*
 Requires-Dist: graphviz
 Requires-Dist: networkx
 Requires-Dist: pydot
-Requires-Dist: HolisticTraceAnalysis@ git+https://github.com/facebookresearch/HolisticTraceAnalysis.git@d731cc2e2249976c97129d409a83bd53d93051f6
+Requires-Dist: HolisticTraceAnalysis @ git+https://github.com/facebookresearch/HolisticTraceAnalysis.git@d731cc2e2249976c97129d409a83bd53d93051f6
+Dynamic: license-file
 
 # Chakra
 

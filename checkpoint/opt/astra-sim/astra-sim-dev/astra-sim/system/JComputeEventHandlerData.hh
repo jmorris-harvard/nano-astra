@@ -13,6 +13,7 @@ class ComputeEventHandlerData : public AstraSim::BasicEventHandlerData {
     // statistics
     double compute_utilization;
     double memory_utilization;
+    double power;
 };
 
 } // namespace Jalil

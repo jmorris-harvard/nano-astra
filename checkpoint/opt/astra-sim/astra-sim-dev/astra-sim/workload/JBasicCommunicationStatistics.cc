@@ -28,10 +28,10 @@ void BasicCommunicationStatistics::add (BasicEventHandlerData *ehd) {
 }
 
 void BasicCommunicationStatistics::addInternal (SendPacketEventHandlerData *sehd) {
-  uint64_t start, end;
+  uint64_t start = 0, end = 0;
   uint64_t tsize = 0, psize = 0, asize = 0, rsize = 0;
   uint32_t i;
-  auto packetShadows = sehd->_packetTracker.readPackets ();
+  const auto &packetShadows = sehd->_packetTracker->readPackets ();
   for (i = 0; i < packetShadows.size (); ++i) {
     if (i == 0) {
       start = packetShadows[i]._timestamp;

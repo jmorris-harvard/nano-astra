@@ -13,13 +13,18 @@ LICENSE file in the root directory of this source tree.
 
 #include "astra-sim/system/JPacketTracker.hh"
 
+#include <memory>
+
 namespace AstraSim {
 
 class SendPacketEventHandlerData : public BasicEventHandlerData {
   public:
     int tag;
     // ---- Jalil ----
-    Jalil::PacketTracker _packetTracker;
+    // shared_ptr so the ns3 trace-callback lambda (AstraSimNetwork.cc) can
+    // hold its own reference independent of this object's lifetime - the
+    // packet's per-hop trace events can still fire after this is deleted.
+    std::shared_ptr<Jalil::PacketTracker> _packetTracker;
     // ---- Morris ----
     Callable* callable;
     WorkloadLayerHandlerData* wlhd;

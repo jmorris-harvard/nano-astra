@@ -62,6 +62,22 @@ class NS3BackendCompletionTracker {
             }
         }
 
+        // Jalil - true only if every rank has called mark_rank_as_finished
+        bool all_finished(void) const {
+            return num_unfinished_ranks_ == 0;
+        }
+
+        // Jalil - ranks that never reported finished (empty if all_finished())
+        vector<int> unfinished_ranks(void) const {
+            vector<int> unfinished;
+            for (int i = 0; i < (int) completion_tracker_.size(); i++) {
+                if (completion_tracker_[i] == 0) {
+                    unfinished.push_back(i);
+                }
+            }
+            return unfinished;
+        }
+
     private:
         int num_unfinished_ranks_;
         vector<int> completion_tracker_;
@@ -131,17 +147,21 @@ class ASTRASimNetwork : public AstraSim::AstraNetworkAPI {
 	// new
 	AstraSim::BasicEventHandlerData *ehd = (AstraSim::BasicEventHandlerData *) fun_arg;
 	AstraSim::EventType event = ehd->event;
-	AstraSim::SendPacketEventHandlerData *sehd = nullptr;
+	std::shared_ptr<Jalil::PacketTracker> tracker = nullptr;
 	if (event == AstraSim::EventType::PacketSent) {
-	  sehd = (AstraSim::SendPacketEventHandlerData *) ehd;
+	  AstraSim::SendPacketEventHandlerData *sehd = (AstraSim::SendPacketEventHandlerData *) ehd;
+	  tracker = sehd->_packetTracker;
 	} else {
 	  // pass but should never occur
 	}
         send_flow (src_id, dst_id, message_size, msg_handler, fun_arg, tag,
-	  [sehd] (void *arg) {
+	  // captures its own shared_ptr to the tracker so this can safely
+	  // outlive sehd, which gets deleted once the local send completes
+	  // while this trace callback keeps firing on every subsequent hop
+	  [tracker] (void *arg) {
 	    // assumes buffer length is at least 5 64-bit words
 	    uint64_t *buf = (uint64_t *) arg;
-	    sehd->_packetTracker.addPacket (buf[0], buf[1], buf[2], buf[3], buf[4]);
+	    tracker->addPacket (buf[0], buf[1], buf[2], buf[3], buf[4]);
 	  }
 	);
 	// ---- Jalil ----
@@ -372,5 +392,25 @@ int main(int argc, char* argv[]) {
     // ---- Jalil ----
     // Run the simulation by triggering the ns3 event queue.
     Simulator::Run();
+
+    // Jalil - Simulator::Run() only returns here if the event queue drained
+    // naturally without every rank reaching sim_notify_finished() (the
+    // all-ranks-done path exits directly via exit(0) in mark_rank_as_finished).
+    // That means the remaining ranks are permanently stuck (e.g. a network-level
+    // PFC deadlock or a stalled workload dependency chain) rather than the
+    // process having been killed externally (OOM, signal, etc.) - an external
+    // kill never reaches this line at all.
+    if (!completion_tracker->all_finished()) {
+        vector<int> unfinished = completion_tracker->unfinished_ranks();
+        cerr << "[deadlock] simulation event queue exhausted but "
+             << unfinished.size() << " of " << num_npus
+             << " ranks never finished: ";
+        for (size_t i = 0; i < unfinished.size(); i++) {
+            cerr << unfinished[i] << (i + 1 < unfinished.size() ? "," : "");
+        }
+        cerr << endl;
+        return 1;
+    }
+
     return 0;
 }

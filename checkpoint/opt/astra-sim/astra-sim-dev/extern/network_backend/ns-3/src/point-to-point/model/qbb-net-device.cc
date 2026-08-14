@@ -271,74 +271,55 @@ namespace ns3 {
 		DequeueAndTransmit();
 	}
 
-	// --- Jalil
-	void QbbNetDevice::ReTransmit (void) {
-		// std::cout << "\nretransmit called" << std::endl;
-		/* // print list
-		std::cout << "(" << Simulator::Now () << ")" << " list state:";
-		for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
-			std::cout << "\t" << it->second;
-		}
-		std::cout << std::endl; */
-		// get expired packet
-		auto it = m_outbound.begin ();
-		for ( ; it != m_outbound.end (); it++) {
-			if (Simulator::Now () >= it->second ) {
-				break;
+	// --- Jalil ---
+	void QbbNetDevice::ScheduleRetransmitCheck (Time expireAt) {
+		if (m_retransmitEvent.IsPending ()) {
+			Time pending = Time::FromInteger (m_retransmitEvent.GetTs (), Time::GetResolution ());
+			if (expireAt >= pending) {
+				return;
 			}
+			Simulator::Cancel (m_retransmitEvent);
 		}
+		m_retransmitEvent = Simulator::Schedule (expireAt - Simulator::Now (), &QbbNetDevice::ReTransmit, this);
+	}
 
-		if (it == m_outbound.end ()) {
-			// no expired packets
-			// std::cout << "no expire packets" << std::endl;
-			return;
-		}
+	void QbbNetDevice::ReTransmit (void) {
+		while (!m_outbound.empty () && Simulator::Now () >= m_outbound.begin ()->first) {
+			auto it = m_outbound.begin ();
+			Ptr<Packet> p = it->second.first;
+			Ptr<RdmaQueuePair> qp = it->second.second;
 
-		// grab packet
-		auto inputs = it->first;
-		Ptr<Packet> p = inputs.first;
-		Ptr<RdmaQueuePair> qp = inputs.second;
+			if (qp->IsFinished ()) {
+				// associated qp is done no need to do anything
+				m_outbound.erase (it);
+				continue;
+			}
 
-		if (qp->IsFinished ()) {
-			// associated qp is done no need to do anything
-			// std::cout << "qp completed" << std::endl;
+			// read packet data
+			CustomHeader ch (CustomHeader::L2_Header | CustomHeader::L3_Header | CustomHeader::L4_Header);
+			p->PeekHeader(ch);
+			uint32_t seq = ch.udp.seq;
+			uint32_t size = p->GetSize () - ch.GetSerializedSize ();
+			// has cumulative ack passed this packet's end offset?
+			uint64_t endSeq = (uint64_t) seq + size;
+			if ( qp->snd_una < endSeq ) {
+				// no ack received, rewind
+				qp->snd_nxt = seq;
+			} else {
+				// ack received, no issues
+			}
+
 			m_outbound.erase (it);
-			return;
 		}
 
-		// read packet data
-		CustomHeader ch (CustomHeader::L2_Header | CustomHeader::L3_Header | CustomHeader::L4_Header);
-		p->PeekHeader(ch);
-		uint32_t seq = ch.udp.seq;
-		uint32_t size = p->GetSize () - ch.GetSerializedSize ();
-		uint32_t ack = size - seq;
-		/* std::cout << "seq - " << seq << std::endl;
-		std::cout << "size - " << size << std::endl;
-		std::cout << "una - " << qp->snd_una << std::endl; */
-		if ( qp->snd_una < ack ) {
-			// no ack received, rewind
-			qp->snd_nxt = seq;
-			// std::cout << "packet not acked rewinding" << std::endl;
-		} else {
-			// ack received, no issues
-			// std::cout << "packet acked no issues" << std::endl;
+		if (!m_outbound.empty ()) {
+			ScheduleRetransmitCheck (m_outbound.begin ()->first);
 		}
-
-		// remove item
-		m_outbound.erase (it);
-
-		/* // print list
-		std::cout << "(" << Simulator::Now () << ")" << " list state:";
-		for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
-			std::cout << "\t" << it->second;
-		}
-		std::cout << std::endl; */
-		
-		// std::cout << "retransmit done" << std::endl;
 
 		// restart transmission
 		DequeueAndTransmit ();
 	}
+	// --- Jalil ---
 
 	void QbbNetDevice::Trace (uint64_t type, uint64_t loc, Ptr<Packet> p) {
 	  static uint64_t arguments[5];
@@ -381,22 +362,17 @@ namespace ns3 {
 				// -- Jalil
 				TransmitStart(p);
 
-				// --- Jalil
+				// --- Jalil ---
 				// add re-transmit logic when unacked
-				Time expire = Time (5 * lastQp->m_baseRtt);
-				// add expire search to list
-				std::pair<Ptr<Packet>, Ptr<RdmaQueuePair>> inputs (p->Copy (), lastQp);
-				m_outbound.emplace_back (inputs, expire);
-				// std::cout << "\nsending packet out" << std::endl;
+				// Time expire = Time (5 * lastQp->m_baseRtt);
+				// std::pair<Ptr<Packet>, Ptr<RdmaQueuePair>> inputs (p->Copy (), lastQp);
+				// m_outbound.emplace_back (inputs, expire);
 				// Simulator::Schedule(Simulator::Now () + expire, &QbbNetDevice::ReTransmit, this);
-				// std::cout << "resend scheduled\n" << std::endl;
-				/* // print list
-				std::cout << "(" << Simulator::Now() << ")" << " list state:";
-				for (auto it = m_outbound.begin (); it != m_outbound.end (); ++it) {
-					std::cout << "\t" << it->second;
-				}
-				std::cout << std::endl; */
-				// --- Jalil
+				Time expireDelay = Time (5 * lastQp->m_baseRtt);
+				Time expireAt = Simulator::Now () + expireDelay;
+				m_outbound.emplace (expireAt, std::make_pair (p->Copy (), lastQp));
+				ScheduleRetransmitCheck (expireAt);
+				// --- Jalil ---
 
 				// update for the next avail time
 				m_rdmaPktSent(lastQp, p, m_tInterframeGap);
@@ -508,9 +484,19 @@ namespace ns3 {
 			if (ch.pfc.time > 0){
 				m_tracePfc(1);
 				m_paused[qIndex] = true;
+				// Jalil
+				std::cout << "[tracker] pfc,pause," << m_node->GetId() << "," <<
+					m_ifIndex << "," << qIndex << "," <<
+					Simulator::Now ().GetNanoSeconds () << std::endl;
+				// Jalil
 			}else{
 				m_tracePfc(0);
 				Resume(qIndex);
+				// Jalil
+				std::cout << "[tracker] pfc,resume," << m_node->GetId() << "," <<
+					m_ifIndex << "," << qIndex << "," <<
+					Simulator::Now ().GetNanoSeconds () << std::endl;
+				// Jalil
 			}
 		}else { // non-PFC packets (data, ACK, NACK, CNP...)
 			if (m_node->GetNodeType() > 0){ // switch

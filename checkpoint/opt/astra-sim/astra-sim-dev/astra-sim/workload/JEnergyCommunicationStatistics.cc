@@ -1,5 +1,6 @@
 #include "astra-sim/workload/JEnergyCommunicationStatistics.hh"
 
+#include <algorithm>
 #include <iostream>
 #include <cstdlib>
 
@@ -8,46 +9,57 @@ using namespace AstraSim;
 using namespace std;
 using json = nlohmann::json;
 
-EnergyCommunicationBlock::EnergyCommunicationBlock (uint64_t start, uint64_t end, uint64_t tsize, uint64_t psize, uint64_t asize, uint64_t rsize) : _start (start), _end (end),
-     _tsize (tsize), _psize (psize), _asize (asize), _rsize (rsize) {}
-
-EnergyCommunicationConfig::EnergyCommunicationConfig (double pJPerBitTx, double pJPerBitRx)
-  : _pJPerBitTx (pJPerBitTx), _pJPerBitRx (pJPerBitRx) {}
+EnergyCommunicationConfig::EnergyCommunicationConfig (vector<int> nodes, double pJPerBitTx, double pJPerBitRx)
+  : _nodes (std::move (nodes)), _pJPerBitTx (pJPerBitTx), _pJPerBitRx (pJPerBitRx) {}
 
 const vector<StatisticsType> EnergyCommunicationStatistics::_targets = {
   StatisticsType::Communication  
 };
 
 EnergyCommunicationStatistics::EnergyCommunicationStatistics (json config)
-  : StatisticsProcessor (),
-    _aggTotalBytesSent (0),
-    _aggTransmitTime (0),
-    _totalTransmitEvents (0),
-    _totalTSize (0),
-    _totalPSize (0),
-    _totalASize (0),
-    _totalRSize (0),
-    _config (0.0, 0.0) {
-  if (!config.contains ("tx")) {
-    cerr << "energy communication statistics must contain a tx power rating" << endl;
+  : StatisticsProcessor () {
+  if (!config.contains ("efficiencies")) {
+    cerr << "energy communication statistics must contain efficiency configs" << endl;
     exit (EXIT_FAILURE);
   }
-  if (!config["tx"].is_number ()) {
-    cerr << "tx power rating must be a number" << endl;
+  if (!config["efficiencies"].is_array ()) {
+    cerr << "efficiency configs must be array" << endl;
     exit (EXIT_FAILURE);
   }
-  if (!config.contains ("rx")) {
-    cerr << "energy communication statistics must contain a rx power rating" << endl;
-    exit (EXIT_FAILURE);
+  auto efficiencies = config["efficiencies"].template get<vector<json>> ();
+  for (json &efficiency : efficiencies) {
+    if (!efficiency.contains ("nodes")) {
+      cerr << "each efficiency must contain assigned nodes" << endl;
+      exit (EXIT_FAILURE);
+    }
+    if (!efficiency["nodes"].is_array ()) {
+      cerr << "assigned nodes must be array" << endl;
+      exit (EXIT_FAILURE);
+    }
+    if (!efficiency.contains ("tx")) {
+      cerr << "each efficiency must contain a tx power rating" << endl;
+      exit (EXIT_FAILURE);
+    }
+    if (!efficiency["tx"].is_number ()) {
+      cerr << "tx power rating must be a number" << endl;
+      exit (EXIT_FAILURE);
+    }
+    if (!efficiency.contains ("rx")) {
+      cerr << "each efficiency must contain a rx power rating" << endl;
+      exit (EXIT_FAILURE);
+    }
+    if (!efficiency["rx"].is_number ()) {
+      cerr << "rx power rating must be a number" << endl;
+      exit (EXIT_FAILURE);
+    }
+    _configs.emplace_back (
+      efficiency["nodes"].template get<vector<int>> (),
+      efficiency["tx"].template get<double> (),
+      efficiency["rx"].template get<double> ()
+    );
+    this->_totalTxSize.push_back (0);
+    this->_totalRxSize.push_back (0);
   }
-  if (!config["rx"].is_number ()) {
-    cerr << "rx power rating must be a number" << endl;
-    exit (EXIT_FAILURE);
-  }
-  _config = EnergyCommunicationConfig (
-    config["tx"].template get<double> (),
-    config["rx"].template get<double> ()
-  );
 }
 
 void EnergyCommunicationStatistics::add (BasicEventHandlerData *ehd) {
@@ -55,47 +67,38 @@ void EnergyCommunicationStatistics::add (BasicEventHandlerData *ehd) {
 }
 
 void EnergyCommunicationStatistics::addInternal (SendPacketEventHandlerData *sehd) {
-  uint64_t start, end;
-  uint64_t tsize = 0, psize = 0, asize = 0, rsize = 0;
-  uint32_t i;
-  auto packetShadows = sehd->_packetTracker.readPackets ();
-  for (i = 0; i < packetShadows.size (); ++i) {
-    if (i == 0) {
-      start = packetShadows[i]._timestamp;
-    } else if (i == packetShadows.size () - 1) {
-      end = packetShadows[i]._timestamp;
+  const auto &packetShadows = sehd->_packetTracker->readPackets ();
+  for (uint32_t i = 0; i < packetShadows.size (); ++i) {
+    if (packetShadows[i]._loc != PacketLocation::TRANSMIT &&
+        packetShadows[i]._loc != PacketLocation::RECEIVE) {
+      continue;
     }
-    if (packetShadows[i]._loc == PacketLocation::TRANSMIT) {
-      tsize = tsize + packetShadows[i]._size;
-    } else if (packetShadows[i]._loc == PacketLocation::PROPAGATE) {
-      psize = psize + packetShadows[i]._size;
-    } else if (packetShadows[i]._loc == PacketLocation::ARRIVE) {
-      asize = asize + packetShadows[i]._size;
-    } else if (packetShadows[i]._loc == PacketLocation::RECEIVE) {
-      rsize = rsize + packetShadows[i]._size;
-    } else {
-      cout << static_cast<uint64_t> (packetShadows[i]._type) << " " << static_cast<uint64_t> (packetShadows[i]._loc) << " " << packetShadows[i]._node << " " << packetShadows[i]._port << endl;
+    int node = (int) packetShadows[i]._node;
+    for (uint32_t c = 0; c < this->_configs.size (); ++c) {
+      if (std::find (this->_configs[c]._nodes.begin (), this->_configs[c]._nodes.end (), node) ==
+          this->_configs[c]._nodes.end ()) {
+        continue;
+      }
+      if (packetShadows[i]._loc == PacketLocation::TRANSMIT) {
+        this->_totalTxSize[c] = this->_totalTxSize[c] + packetShadows[i]._size * 8;
+      } else {
+        this->_totalRxSize[c] = this->_totalRxSize[c] + packetShadows[i]._size * 8;
+      }
+      break;
     }
   }
-  this->_blocks.emplace_back (start, end, tsize, psize, asize, rsize);
 }
 
 void EnergyCommunicationStatistics::process (void) {
-  for (auto &block : _blocks) {
-    this->_aggTotalBytesSent = this->_aggTotalBytesSent + block._tsize;
-    this->_aggTransmitTime = this->_aggTransmitTime + (block._end - block._start);
-    this->_totalTransmitEvents = this->_totalTransmitEvents + 1;
-    this->_totalTSize = this->_totalTSize + block._tsize;
-    this->_totalPSize = this->_totalPSize + block._psize;
-    this->_totalASize = this->_totalASize + block._asize;
-    this->_totalRSize = this->_totalRSize + block._rsize;
-  }
-  this->_blocks.clear ();
 }
 
 void EnergyCommunicationStatistics::report (void) {
-  cout << "Total Transmit Energy Consumed: " << (double) this->_totalTSize * 8.0 * this->_config._pJPerBitTx * 1.0e-12 << " J" << endl;
-  cout << "Total Receive Energy Consumed: " << (double) this->_totalRSize * 8.0 * this->_config._pJPerBitRx * 1.0e-12 << " J" << endl;
+  for (uint32_t i = 0; i < this->_configs.size (); ++i) {
+    double txEnergy = (double) this->_totalTxSize[i] * this->_configs[i]._pJPerBitTx * 1.0e-12;
+    double rxEnergy = (double) this->_totalRxSize[i] * this->_configs[i]._pJPerBitRx * 1.0e-12;
+    cout << "[report] Config " << i << " Transmit Energy Consumed: " << txEnergy << " J" << endl;
+    cout << "[report] Config " << i << " Receive Energy Consumed: " << rxEnergy << " J" << endl;
+  }
 }
 
 const vector<StatisticsType> &EnergyCommunicationStatistics::targets (void) const {

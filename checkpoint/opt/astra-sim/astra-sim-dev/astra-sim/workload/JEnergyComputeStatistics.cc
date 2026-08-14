@@ -12,8 +12,8 @@ using namespace std;
 using json = nlohmann::json;
 
 EnergyComputeBlock::EnergyComputeBlock (
-    uint64_t node, uint64_t start, uint64_t end, double cu, double mu) :
-  _node (node), _start (start), _end (end), _cu (cu), _mu (mu) {}
+    uint64_t node, uint64_t start, uint64_t end, double cu, double mu, double power) :
+  _node (node), _start (start), _end (end), _cu (cu), _mu (mu), _power (power) {}
 
 EnergyConfig::EnergyConfig (
     vector<int> nodes, double idle, double cPeak, double mPeak, double tPeak) :
@@ -95,7 +95,8 @@ void EnergyComputeStatistics::addInternal (Jalil::ComputeEventHandlerData *cehd)
     cehd->start_time,
     cehd->end_time,
     cehd->compute_utilization,
-    cehd->memory_utilization
+    cehd->memory_utilization,
+    cehd->power
   );
 }
 
@@ -108,7 +109,7 @@ void EnergyComputeStatistics::process (void) {
         break;
       }
     }
-    double power = block._cu * config->_cPeak;
+    double power = block._power > 0.0 ? block._power : block._cu * config->_cPeak;
     this->_computeEnergyConsumed = this->_computeEnergyConsumed + ((double) block._end - (double) block._start) * 1.0e-9 * power;
     this->_memoryEnergyConsumed = this->_memoryEnergyConsumed + block._mu * config->_mPeak;
   }
@@ -116,9 +117,10 @@ void EnergyComputeStatistics::process (void) {
 }
 
 void EnergyComputeStatistics::report (void) {
-  double idleEnergy = (double) Sys::boostedTick () * 1.0e-9 * this->_configs[0]._idle;
-  cout << "Compute Energy Consumed: " << this->_computeEnergyConsumed + idleEnergy << " J" << endl;
-  cout << "Memory Energy Consumed: " << this->_memoryEnergyConsumed << " J" << endl;
+  // double idleEnergy = (double) Sys::boostedTick () * 1.0e-9 * this->_configs[0]._idle;
+  double idleEnergy = 0.0;
+  cout << "[report] Compute Energy Consumed: " << this->_computeEnergyConsumed + idleEnergy << " J" << endl;
+  cout << "[report] Memory Energy Consumed: " << this->_memoryEnergyConsumed << " J" << endl;
 }
 
 const vector<StatisticsType> &EnergyComputeStatistics::targets (void) const {

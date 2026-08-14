@@ -12,32 +12,15 @@
 
 namespace Jalil {
 
-class EnergyCommunicationBlock {
-  public:
-    EnergyCommunicationBlock (
-      uint64_t start,
-      uint64_t end,
-      uint64_t tsize,
-      uint64_t psize,
-      uint64_t asize,
-      uint64_t rsize
-    );
-
-    uint64_t _start;
-    uint64_t _end;
-    uint64_t _tsize;
-    uint64_t _psize;
-    uint64_t _asize;
-    uint64_t _rsize;
-};
-
 class EnergyCommunicationConfig {
   public:
     EnergyCommunicationConfig (
+      std::vector<int> nodes,
       double pJPerBitTx,
       double pJPerBitRx
     );
 
+    std::vector<int> _nodes;
     double _pJPerBitTx;
     double _pJPerBitRx;
 };
@@ -52,15 +35,9 @@ class EnergyCommunicationStatistics : public StatisticsProcessor {
   private:
     void addInternal (AstraSim::SendPacketEventHandlerData *sehd);
 
-    std::vector<EnergyCommunicationBlock> _blocks;
-    EnergyCommunicationConfig _config;
-    uint64_t _aggTotalBytesSent;
-    uint64_t _aggTransmitTime;
-    uint64_t _totalTransmitEvents;
-    uint64_t _totalTSize;
-    uint64_t _totalPSize;
-    uint64_t _totalASize;
-    uint64_t _totalRSize;
+    std::vector<EnergyCommunicationConfig> _configs;
+    std::vector<uint64_t> _totalTxSize;
+    std::vector<uint64_t> _totalRxSize;
     static const std::vector<StatisticsType> _targets;
 };
 

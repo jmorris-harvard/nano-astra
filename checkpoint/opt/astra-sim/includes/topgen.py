@@ -210,10 +210,31 @@ class NVLink4 (GenericLink):
     this.tx (7.61)
     this.rx (7.62)
 
-class Infiniband (GenericLink):
+class Infiniband_200G (GenericLink):
   def __init__ (this, src, dst = None):
     super ().__init__ (src, dst)
-    this._sid = 'Infiniband'
+    this._sid = 'Infiniband_200G'
+    # add specs
+    # using QM8790 switch as bandwidth
+    # 130ns Port to Port Latency
+    # https://network.nvidia.com/files/doc-2020/pb-qm8790.pdf
+    # https://docs.nvidia.com/networking/display/qm87xx/specifications
+    # requires login for power consumption
+    this.bw (200e9) # 200Gbps
+    # using ??? as latency
+    # using QSFP56 cable for latency
+    # https://network.nvidia.com/pdf/prod_cables/PB_MFS1S00-HxxxE_200Gbps_QSFP56_AOC.pdf
+    # https://docs.nvidia.com/networking/display/mfs1s00hxxxv10
+    # 8.7W power consumption
+    # 10W power consumption
+    this.latency (120e-9 + 5e-6) # switch + cable latency (~5ns per meter)
+    this.idle (10.0)
+    this.peak (25.0)
+
+class Infiniband_400G (GenericLink):
+  def __init__ (this, src, dst = None):
+    super ().__init__ (src, dst)
+    this._sid = 'Infiniband_400G'
     # add specs
     # using QM8790 switch as bandwidth
     # 130ns Port to Port Latency
@@ -354,11 +375,19 @@ class NetworkCardSwitch (GenericSwitch):
     super ().__init__ (npcie + ninfiniband, types)
     this._sid = 'NetworkCardSwitch'
 
-class InfinibandSwitch (GenericSwitch):
+class InfinibandSwitch_200G (GenericSwitch):
   def __init__ (this, nports):
-    types = [Infiniband for _ in range (nports)]
+    # NOTE: only a maximum of nports must be connected and I will fix this functionality later
+    types = [Infiniband_200G for _ in range (nports)]
     super ().__init__ (nports, types)
-    this._sid = 'InfinibandSwitch'
+    this._sid = 'InfinibandSwitch_200G'
+
+class InfinibandSwitch_400G (GenericSwitch):
+  def __init__ (this, nports):
+    # NOTE: only a maximum of nports must be connected and I will fix this functionality later
+    types = [Infiniband_400G for _ in range (nports)]
+    super ().__init__ (nports, types)
+    this._sid = 'InfinibandSwitch_400G'
 
 class GenericCompute (GenericEndpoint):
   def __init__ (this, nports = 1, types = None):
@@ -449,10 +478,10 @@ class H200SXM (GenericCompute):
 
 class DGXA100Unit (GenericCompute):
   def __init__ (this):
-    super ().__init__ (8, 
+    super ().__init__ (8,
       [
-        Infiniband, Infiniband, Infiniband, Infiniband,
-        Infiniband, Infiniband, Infiniband, Infiniband
+        Infiniband_200G, Infiniband_200G, Infiniband_200G, Infiniband_200G,
+        Infiniband_200G, Infiniband_200G, Infiniband_200G, Infiniband_200G
       ]
     )
     this.bw (12440.0e9)
@@ -466,31 +495,32 @@ class DGXA100 (GenericEndpoint):
     super ().__init__ (0)
     this._type = Node.Type.CONTAINER
     # make eight A100 nodes
-    this._nodes = [A100 () for _ in range (8)]
+    this._nodes = [A100SXM () for _ in range (8)]
     # make six NVLINK switches
     this._int_switches = [NVLinkSwitch () for _ in range (6)]
     # connect GPUs
     for a100 in this._nodes:
       for nvswitch in this._int_switches:
-        a100.link (nvswitch, NVLink)
-        a100.link (nvswitch, NVLink)
+        a100.link (nvswitch, NVLink3)
+        a100.link (nvswitch, NVLink3)
     # create network card switch
-    this._out_switches = [NetworkCardSwitch (8, 8)]
-    # link pcie5
+    this._out_switches = [NetworkCardSwitch (PCIe4, 8, Infiniband_200G, 8)]
+    # link pcie4
     for a100 in this._nodes:
-      a100.link (this._out_switches[0], PCIe5)
+      a100.link (this._out_switches[0], PCIe4)
     # grab infiniband links and add on
     for link in this._out_switches[0].ports ():
       if link.n () == 1:
         this.add (link)
 
-class DGXH100 (GenericEndpoint):
+class DGXH200 (GenericEndpoint):
   def __init__ (this):
     # start with 0 links and add on
     super ().__init__ (0)
     this._type = Node.Type.CONTAINER
-    # make eight H100 nodes
-    this._nodes = [H100SXM () for _ in range (8)]
+    # make eight H100 nodes (H200SXM shares the H100 SXM die/NVLink4
+    # topology/power envelope, differing only in HBM capacity)
+    this._nodes = [H200SXM () for _ in range (8)]
     # make six NVLINK switches
     this._int_switches = [NVLinkSwitch3 () for _ in range (4)]
     # connect GPUs
@@ -499,10 +529,10 @@ class DGXH100 (GenericEndpoint):
         for _ in range (4 + ((i + j) % 2)):
           h100.link (nvswitch, NVLink4)
     # create network card switch
-    this._out_switches = [NetworkCardSwitch (8, 8)]
+    this._out_switches = [NetworkCardSwitch (PCIe5, 8, Infiniband_400G, 8)]
     # link network card switch
     for h100 in this._nodes:
-      h100.link (this._out_switches[0], PCIe)
+      h100.link (this._out_switches[0], PCIe5)
     # grab infiniband links and add on
     for link in this._out_switches[0].ports ():
       if link.n () == 1:
@@ -516,10 +546,10 @@ class SUA100 (GenericEndpoint):
     # make 20 DGX units
     this._nodes = [DGXA100 () for _ in range (20)]
     # make 8 leaf switches
-    this._switches = [InfinibandSwitch (40) for _ in range (8)]
+    this._switches = [InfinibandSwitch_200G (40) for _ in range (8)]
     for dgx in this._nodes:
       for infiniband in this._switches:
-        dgx.link (infiniband, Infiniband)
+        dgx.link (infiniband, Infiniband_200G)
     # grab infiniband links and add on
     for switch in this._switches:
       for link in switch.ports ():
@@ -538,14 +568,14 @@ class SpineGroupA100 (GenericEndpoint):
     #   to its spine group id (7 underconnects)
     # each spine switch is connected to an upper layer 27 switches
     #   corresponding to odd or even core group (27 overconnects)
-    this._switches = [[InfinibandSwitch (40) for i in range (10)] for j in range (8)]
+    this._switches = [[InfinibandSwitch_200G (40) for i in range (10)] for j in range (8)]
     for su in this._nodes:
       # grab switches and connect
       for i, infiniband in enumerate (su._switches):
         # connect leaf switches to all switches in spine group
         for spine in this._switches[i]:
           # connect to spine
-          infiniband.link (spine, Infiniband)
+          infiniband.link (spine, Infiniband_200G)
     # grab infiniband links and add on
     for sg in this._switches:
       for spine in sg:
@@ -563,13 +593,13 @@ class SuperPodA100 (GenericEndpoint):
     # make 2 by 27 core switches
     # each has a link for each spine group switch
     # plus 1 for reachability
-    this._switches = [[InfinibandSwitch (40 + 1) for i in range (27)] for j in range (2)]
+    this._switches = [[InfinibandSwitch_200G (40 + 1) for i in range (27)] for j in range (2)]
     for sg in this._nodes[0]._switches:
       # enumerate each switch in each group
       for i, spine in enumerate (sg):
         # link with all switches in
         for core in this._switches[i % 2]:
-          core.link (spine, Infiniband)
+          core.link (spine, Infiniband_200G)
     # grab infiniband links and add on
     for cg in this._switches:
       for core in cg:
@@ -587,13 +617,13 @@ class SuperSpineA100 (GenericEndpoint):
     # make 1 by 20 spine switches
     # each spine switch is connected to each leaf node
     # 32 leaf switches (network not fully utilized)
-    this._switches = [InfinibandSwitch (40) for _ in range (20)]
+    this._switches = [InfinibandSwitch_200G (40) for _ in range (20)]
     for su in this._nodes:
       # grab switches and connect
       for i, infiniband in enumerate (su._switches):
         # connect leaf switches to all switches in spine group
         for s, spine in enumerate (this._switches):
-          infiniband.link (spine, Infiniband)
+          infiniband.link (spine, Infiniband_200G)
     # grab infiniband links and add on
     for spine in this._switches:
       for link in spine.ports ():
@@ -601,53 +631,77 @@ class SuperSpineA100 (GenericEndpoint):
           this.add (link)
 
 class FatTree (GenericEndpoint):
-  def __init__ (this, k, N, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch, LinkType = Infiniband):
+  def __init__ (this, k, N, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G):
     # parse args
     if k % 2 != 0:
       print ('k-ary Fat Tree must be divisible by 2')
       sys.exit ()
-    if N % k != 0:
-      print ('N ports must be divisible by k')
+
+    # determine how many external LinkType ports a single ComputeType instance exposes
+    probe = ComputeType ()
+    nExternal = len ([
+      link for link in probe.ports ()
+      if link.n () == 1 and isinstance (link, LinkType)
+    ])
+    if nExternal == 0:
+      print ('ComputeType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
+      sys.exit ()
+
+    # ensure SwitchType exposes ports compatible with LinkType as well
+    probeSwitch = SwitchType (1)
+    if not any (link.n () == 1 and isinstance (link, LinkType) for link in probeSwitch.ports ()):
+      print ('SwitchType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
+      sys.exit ()
+
+    if N % (k * nExternal) != 0:
+      print ('N ports must be divisible by k * number of external connections per ComputeType (%d)' % (k * nExternal))
+      sys.exit ()
+
     # begin with 0 external links
     super ().__init__ (0)
     this._type = Node.Type.CONTAINER
     # get component amounts
-    kCompute = int ((k ** 3) / 4)
     kCore = int ((k / 2) ** 2)
     kAgg = int ((k ** 2) / 2)
     kEdge = kAgg
-    kMult = int (N / k)
+    kMult = int (N / (k * nExternal))
+    kCompute = int ((k ** 3) / 4) * kMult
     # compute nodes
     this._nodes = [ComputeType () for _ in range (kCompute)]
     this._switches = [SwitchType (N + 1) for _ in range (kCore)]
     this.agg = [SwitchType (N + 1) for _ in range (kAgg)]
     this.edge = [SwitchType (N + 1) for _ in range (kEdge)]
 
-    # connect core and agg
+    # connect core and agg (duplicated per external connection of ComputeType
+    # to cancel out kMult's division by nExternal and keep switch ports saturated)
     cnt = 0
     for i, agg in enumerate (this.agg):
       for j in range (int (k/2)):
         for _ in range (kMult):
-          agg.link (this._switches[(i % int (k / 2)) * int (k / 2) + j], LinkType)
-          cnt = cnt + 1
+          for _ in range (nExternal):
+            agg.link (this._switches[(i % int (k / 2)) * int (k / 2) + j], LinkType)
+            cnt = cnt + 1
     # print (cnt)
 
-    # connect agg and edge
+    # connect agg and edge (duplicated per external connection of ComputeType)
     cnt = 0
     for i in range (k):
       for j in range (int (k/2)):
         for l in range (int (k/2)):
           for _ in range (kMult):
-            this.agg[int (i * k / 2) + j].link (this.edge[int (i * k / 2) + l], LinkType)
-            cnt = cnt + 1
+            for _ in range (nExternal):
+              this.agg[int (i * k / 2) + j].link (this.edge[int (i * k / 2) + l], LinkType)
+              cnt = cnt + 1
     # print (cnt)
 
-    # connect edge and compute (kMult removed)
+    # connect edge and compute (each edge now serves kMult times as many
+    # compute nodes so downlink port count scales with kMult like the uplinks)
     cnt = 0
     for i, edge in enumerate (this.edge):
-      for j in range (int (k / 2)):
-        edge.link (this._nodes[int (i * k / 2) + j], LinkType)
-        cnt = cnt +1
+      for j in range (int (k / 2) * kMult):
+        for _ in range (nExternal):
+          edge.link (this._nodes[int (i * (k / 2) * kMult) + j], LinkType)
+          cnt = cnt +1
     # print (cnt)
 
     for switch in this._switches:
@@ -656,41 +710,63 @@ class FatTree (GenericEndpoint):
           this.add (link)
 
 class LeafSpine (GenericEndpoint):
-  def __init__ (this, k, N, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch, LinkType = Infiniband):
+  def __init__ (this, k, N, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G):
     # parse args
     if k % 2 != 0:
       print ('k-ary Fat Tree must be divisible by 2')
       sys.exit ()
-    if N % k != 0:
-      print ('N ports must be divisible by k')
+
+    # determine how many external LinkType ports a single ComputeType instance exposes
+    probe = ComputeType ()
+    nExternal = len ([
+      link for link in probe.ports ()
+      if link.n () == 1 and isinstance (link, LinkType)
+    ])
+    if nExternal == 0:
+      print ('ComputeType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
       sys.exit ()
+
+    # ensure SwitchType exposes ports compatible with LinkType as well
+    probeSwitch = SwitchType (1)
+    if not any (link.n () == 1 and isinstance (link, LinkType) for link in probeSwitch.ports ()):
+      print ('SwitchType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
+      sys.exit ()
+
+    if N % (k * nExternal) != 0:
+      print ('N ports must be divisible by k * number of external connections per ComputeType (%d)' % (k * nExternal))
+      sys.exit ()
+
     # begin with 0 external links
     super ().__init__ (0)
     this._type = Node.Type.CONTAINER
     # get component amounts
-    kCompute = int ((k ** 2) / 2)
     kLeaf = int (k)
     kSpine = int (k / 2)
-    kMult = int (N / k)
+    kMult = int (N / (k * nExternal))
+    kCompute = int ((k ** 2) / 2) * kMult
     # compute nodes
     this._nodes = [ComputeType () for _ in range (kCompute)]
     this._switches = [SwitchType (N + 1) for _ in range (kSpine)]
     this.leaf = [SwitchType (N + 1) for _ in range (kLeaf)]
 
-    # connect spine and leaf
+    # connect spine and leaf (duplicated per external connection of ComputeType
+    # to cancel out kMult's division by nExternal and keep switch ports saturated)
     cnt = 0
     for i, spine in enumerate (this._switches):
       for j in range (kLeaf):
         for _ in range (kMult):
-          spine.link (this.leaf[j], LinkType)
-          cnt = cnt + 1
+          for _ in range (nExternal):
+            spine.link (this.leaf[j], LinkType)
+            cnt = cnt + 1
     # print (cnt)
 
-    # connect leaf and compute
+    # connect leaf and compute (each leaf now serves kMult times as many
+    # compute nodes so downlink port count scales with kMult like the uplinks)
     cnt = 0
     for i, compute in enumerate (this._nodes):
-      compute.link (this.leaf[int (i / (k / 2))], LinkType)
-      cnt = cnt +1
+      for _ in range (nExternal):
+        compute.link (this.leaf[int (i / ((k / 2) * kMult))], LinkType)
+        cnt = cnt +1
     # print (cnt)
 
     for switch in this._switches:
@@ -699,25 +775,46 @@ class LeafSpine (GenericEndpoint):
           this.add (link)
 
 class JellyFish (GenericEndpoint):
-  def __init__ (this, k, r, N, P, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch, LinkType = Infiniband):
+  def __init__ (this, k, r, N, P, ComputeType = DGXA100Unit, SwitchType = InfinibandSwitch_200G, LinkType = Infiniband_200G):
     # parse args
-    if P % k != 0:
-      print ('P ports must be divisible by k')
-      sys.exit ()
     if k - r < 1:
       print ('Racks must be able to support at least 1 server, k - r at least 1')
       sys.exit ()
+
+    # determine how many external LinkType ports a single ComputeType instance exposes
+    probe = ComputeType ()
+    nExternal = len ([
+      link for link in probe.ports ()
+      if link.n () == 1 and isinstance (link, LinkType)
+    ])
+    if nExternal == 0:
+      print ('ComputeType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
+      sys.exit ()
+
+    # ensure SwitchType exposes ports compatible with LinkType as well
+    probeSwitch = SwitchType (1)
+    if not any (link.n () == 1 and isinstance (link, LinkType) for link in probeSwitch.ports ()):
+      print ('SwitchType is not compatible with LinkType (no external %s ports found)' % (LinkType.__name__))
+      sys.exit ()
+
+    if P % (k * nExternal) != 0:
+      print ('P ports must be divisible by k * number of external connections per ComputeType (%d)' % (k * nExternal))
+      sys.exit ()
+
     super ().__init__ (0)
     this._type = Node.Type.CONTAINER
-    kCompute = int (N * (k - r))
     kToR = int (N)
-    kMult = int (P / k)
+    kMult = int (P / (k * nExternal))
+    kCompute = int (N * (k - r)) * kMult
     this._nodes = [ComputeType () for _ in range (kCompute)]
     this._switches = [SwitchType (P + 1) for _ in range (kToR)]
 
-    # connect ToR to compute
+    # connect ToR to compute (each ToR now serves kMult times as many
+    # compute nodes so downlink port count scales with kMult like the
+    # ToR-ToR mesh links do)
     for i, compute in enumerate (this._nodes):
-      compute.link (this._switches[int (i / (k - r))], LinkType)
+      for _ in range (nExternal):
+        compute.link (this._switches[int (i / ((k - r) * kMult))], LinkType)
 
     # connect ToR
     cur = []
@@ -758,7 +855,7 @@ class JellyFish (GenericEndpoint):
           if nb is None:
             # all nodes have this node as a neighbor so just grab a random one (in edges)
             nb, lz = random.choice (edges)
-          for _Mult in range (kMult):
+          for _Mult in range (kMult * nExternal):
             nb.unlink (lz)
             na.link (lz, LinkType)
             na.link (nb, LinkType)
@@ -778,7 +875,7 @@ class JellyFish (GenericEndpoint):
           inb = cur.index (nb)
           cur.pop (inb)
           # connect the two nodes
-          for _Mult in range (kMult):
+          for _Mult in range (kMult * nExternal):
             na.link (nb, LinkType)
           nxt.append (nb)
           nxt.append (na)

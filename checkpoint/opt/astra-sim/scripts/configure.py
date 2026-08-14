@@ -58,6 +58,7 @@ def parse_system_config (design):
 	  }
         }
       ],
+      'live-replay-enabled': 0,
       'statistics-enabled': 0,
       'statistics-config': [
         {
@@ -260,10 +261,10 @@ def generate_config_ns3 (filename, design, target_design, target_workload, binar
       'ack-high_prio': 0,
       'link-down': [0, 0, 0],
       'enable-trace': 1,
-      'kmax-map': [6, 25000000000, 400, 40000000000, 800, 200000000000, 1600, 400000000000, 2400, 800000000000, 3200, 1600000000000, 3200],
-      'kmin-map': [6, 25000000000, 100, 40000000000, 200, 200000000000, 400, 400000000000, 600, 800000000000, 800, 1600000000000, 800],
-      'pmax-map': [6, 25000000000, 0.2, 40000000000, 0.2, 200000000000, 0.2, 400000000000, 0.2, 800000000000, 0.2, 1600000000000, 0.2],
-      'buffer-size': 32
+      'kmax-map': [6, 25000000000, 400, 40000000000, 800, 200000000000, 1600, 400000000000, 2400, 512000000000, 3200, 1600000000000, 3200],
+      'kmin-map': [6, 25000000000, 100, 40000000000, 200, 200000000000, 400, 400000000000, 600, 512000000000, 800, 1600000000000, 800],
+      'pmax-map': [6, 25000000000, 0.2, 40000000000, 0.2, 200000000000, 0.2, 400000000000, 0.2, 512000000000, 0.2, 1600000000000, 0.2],
+      'buffer-size': 1024
     }
   }
 
@@ -441,7 +442,7 @@ def generate_config_ns3 (filename, design, target_design, target_workload, binar
     line = '  --network-configuration="' + nscfg + '" \\\n'
     line = line.replace (str (proj), '${PROJECTPATH}')
     script.write (line)
-    line = '  --logging-configuration="' + lcfg + '" | tee >(grep -E "(\[tracker\]|\[report\])" > tracker/log.log) \n'
+    line = '  --logging-configuration="' + lcfg + '" | tee >(grep -E "(\[tracker\]|\[report\])" > ${PROJECTPATH}/tracker/log.log) \n'
     line = line.replace (str (proj),'${PROJECTPATH}')
     script.write (line)
     script.write ('\n')
@@ -546,7 +547,7 @@ def generate_config_analytical (filename, design, target_design, target_workload
     line = '  --remote-memory-configuration="' + mcfg + '" \\\n'
     line = line.replace (str (proj),'${PROJECTPATH}')
     script.write (line)
-    line = '  --logging-configuration="' + lcfg + '" | tee >(grep "\[tracker\]" > tracker/log.log) \n'
+    line = '  --logging-configuration="' + lcfg + '" | tee >(grep "\[tracker\]" > ${PROJECTPATH}/tracker/log.log) \n'
     line = line.replace (str (proj),'${PROJECTPATH}')
     script.write (line)
     script.write ('\n')

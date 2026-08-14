@@ -48,6 +48,7 @@ class Workload : public Callable {
     void issue_comm(std::shared_ptr<Chakra::FeederV3::ETFeederNode> node);
     // --- Jalil
     void issue_custom_comp (std::shared_ptr<Chakra::FeederV3::ETFeederNode> node);
+    void issue_live_replay_comp (std::shared_ptr<Chakra::FeederV3::ETFeederNode> node);
     // --- Jalil
     void issue_coll_comm(std::shared_ptr<Chakra::FeederV3::ETFeederNode> node);
     void issue_send_comm(std::shared_ptr<Chakra::FeederV3::ETFeederNode> node);

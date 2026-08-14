@@ -22,6 +22,7 @@ LICENSE file in the root directory of this source tree.
 
 namespace Jalil {
 class CustomCompute;
+class CustomReplay;
 }
 
 namespace AstraSim {
@@ -265,6 +266,12 @@ class Sys : public Callable {
     // Add custom compute capabilities
     bool custom_enabled;
     Jalil::CustomCompute* compute;
+    // --- Morris
+
+    // --- Jalil
+    // Add live replay capabilities
+    bool live_replay_enabled;
+    Jalil::CustomReplay* live_replay;
     // --- Morris
 
     // memory

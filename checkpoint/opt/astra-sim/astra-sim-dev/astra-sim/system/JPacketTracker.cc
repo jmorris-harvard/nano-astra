@@ -23,6 +23,18 @@ PacketShadow::PacketShadow (
     _timestamp (timestamp),
     _size (size) {}
 
+// mirrors Sys::boostedTick()'s lookup of a live Sys instance; trace_enabled
+// is set from the same config value on every rank, so any live instance
+// reflects the simulation-wide setting.
+static bool tracingEnabled (void) {
+  for (auto &s : Sys::all_sys) {
+    if (s != nullptr) {
+      return s->trace_enabled;
+    }
+  }
+  return false;
+}
+
 PacketTracker::PacketTracker (void)
   : _packets () {}
 
@@ -33,6 +45,9 @@ void PacketTracker::addPacket (
     uint64_t port,
     uint64_t timestamp,
     uint64_t size) {
+  if (!tracingEnabled ()) {
+    return;
+  }
   _packets.emplace_back (type, loc, node, port, timestamp, size);
 }
 

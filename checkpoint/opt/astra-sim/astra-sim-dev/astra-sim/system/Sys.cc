@@ -4,6 +4,7 @@ LICENSE file in the root directory of this source tree.
 *******************************************************************************/
 
 #include "astra-sim/system/Sys.hh"
+#include "astra-sim/system/JReplay.hh"
 
 #include <cstdlib>
 #include <iostream>
@@ -165,6 +166,11 @@ Sys::Sys(int id,
     this->compute = nullptr;
     // --- Jalil Morris
 
+    // --- Jalil Morris
+    this->live_replay_enabled = false;
+    this->live_replay = nullptr;
+    // --- Jalil Morris
+
     this->remote_mem = remote_mem;
     this->remote_mem->set_sys(id, this);
     this->local_mem_bw = 0;
@@ -288,6 +294,13 @@ Sys::~Sys() {
     // remove custom compute resources
     if (custom_enabled) {
     	delete this->compute;
+    }
+    // --- Jalil
+
+    // --- Jalil
+    // remove live replay resources
+    if (live_replay_enabled) {
+    	delete this->live_replay;
     }
     // --- Jalil
 
@@ -507,17 +520,26 @@ bool Sys::initialize_sys(string name) {
     cout << "creating custom execution..." << endl;
     if (j.contains ("custom-enabled")) {
       if (j["custom-enabled"] != 0) {
-        if (roofline_enabled) {
-          std::cerr << "cannot enable both roofline and custom compute" << std::endl;
-	  exit (EXIT_FAILURE);
-	}
-	if (!j.contains ("custom-compute")) {
+	    if (!j.contains ("custom-compute")) {
           std::cerr << "no custom compute config found" << std::endl;
-	  exit (EXIT_FAILURE);
-	}
-	custom_enabled = true;
-	compute = Jalil::CustomComputeBuilder::build (this, j["custom-compute"]);
+	      exit (EXIT_FAILURE);
+	    }
+	    custom_enabled = true;
+	    compute = Jalil::CustomComputeBuilder::build (this, j["custom-compute"]);
       }
+    }
+    // Add live replay hook
+    cout << "creating live replay execution..." << endl;
+    if (j.contains ("live-replay-enabled")) {
+      if (j["live-replay-enabled"] != 0) {
+	    live_replay_enabled = true;
+	    live_replay = new Jalil::CustomReplay (this, json::object ());
+      }
+    }
+    // roofline, custom compute, and live replay are mutually exclusive
+    if ((roofline_enabled ? 1 : 0) + (custom_enabled ? 1 : 0) + (live_replay_enabled ? 1 : 0) > 1) {
+      std::cerr << "cannot enable more than one of roofline, custom compute, and live replay" << std::endl;
+      exit (EXIT_FAILURE);
     }
     // Add arbitrary stats hook
     cout << "creating custom statistics..." << endl;

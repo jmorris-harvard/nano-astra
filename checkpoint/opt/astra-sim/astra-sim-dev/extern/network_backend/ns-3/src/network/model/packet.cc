@@ -157,6 +157,10 @@ Packet::Packet(const Packet& o)
       m_byteTagList(o.m_byteTagList),
       m_packetTagList(o.m_packetTagList),
       m_metadata(o.m_metadata)
+      // --- Jalil ---
+      ,
+      m_packetTracer(o.m_packetTracer)
+      // --- Jalil ---
 {
     o.m_nixVector ? m_nixVector = o.m_nixVector->Copy() : m_nixVector = nullptr;
 }
@@ -172,6 +176,9 @@ Packet::operator=(const Packet& o)
     m_byteTagList = o.m_byteTagList;
     m_packetTagList = o.m_packetTagList;
     m_metadata = o.m_metadata;
+    // --- Jalil ---
+    m_packetTracer = o.m_packetTracer;
+    // --- Jalil ---
     o.m_nixVector ? m_nixVector = o.m_nixVector->Copy() : m_nixVector = nullptr;
     return *this;
 }
@@ -249,6 +256,11 @@ Packet::CreateFragment(uint32_t start, uint32_t length) const
     Ptr<Packet> ret =
         Ptr<Packet>(new Packet(buffer, byteTagList, m_packetTagList, metadata), false);
     ret->SetNixVector(GetNixVector());
+    // --- Jalil ---
+    // this constructor has no Packet to copy from in its initializer list,
+    // so propagate the tracer explicitly, same as the nix vector above.
+    ret->setPacketTracer(m_packetTracer);
+    // --- Jalil ---
     return ret;
 }
 
@@ -1043,7 +1055,16 @@ Packet::setPacketTracer (Callback<void, void *> packetTracer)
 void
 Packet::trace (void *arg)
 {
-  m_packetTracer (arg);
+  // --- Jalil ---
+  // guard against packets whose tracer was never set (e.g. PFC pause/resume
+  // frames) or was lost across a copy/fragment constructor; invoking a null
+  // ns3::Callback dereferences a null pointer and crashes the simulation.
+  // m_packetTracer (arg);
+  if (!m_packetTracer.IsNull ())
+    {
+      m_packetTracer (arg);
+    }
+  // --- Jalil ---
 }
 
 Callback<void, void *>

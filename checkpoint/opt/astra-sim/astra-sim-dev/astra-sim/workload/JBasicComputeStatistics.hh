@@ -16,7 +16,8 @@ class ComputeBlock {
       uint64_t start,
       uint64_t end,
       double cu,
-      double mu
+      double mu,
+      double power
     );
 
     uint64_t _node;
@@ -24,6 +25,7 @@ class ComputeBlock {
     uint64_t _end;
     double _cu;
     double _mu;
+    double _power;
 };
 
 class BasicComputeStatistics : public StatisticsProcessor {

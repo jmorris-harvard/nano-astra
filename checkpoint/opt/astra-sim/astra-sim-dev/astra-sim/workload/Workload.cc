@@ -13,6 +13,7 @@ LICENSE file in the root directory of this source tree.
 #include "astra-sim/system/WorkloadLayerHandlerData.hh"
 // ---- Jalil ----
 #include "astra-sim/system/JComputeEventHandlerData.hh"
+#include "astra-sim/system/JReplay.hh"
 // ---- Jalil ----
 #include <json/json.hpp>
 
@@ -227,6 +228,8 @@ void Workload::issue(shared_ptr<Chakra::FeederV3::ETFeederNode> node) {
                 }
             } else if (this->sys->custom_enabled) {
 		issue_custom_comp (node);
+	    } else if (this->sys->live_replay_enabled) {
+		issue_live_replay_comp (node);
 	    } else {
                 issue_replay (node);
             }
@@ -387,6 +390,26 @@ void Workload::issue_custom_comp (shared_ptr<Chakra::FeederV3::ETFeederNode> nod
   // sys->register_event(this, EventType::General, wlhd, runtime);
   sys->register_event(this, EventType::CompFinished, wlhd, runtime);
   // ---- Jalil ----
+}
+// --- Jalil Morris
+
+// --- Jalil Morris
+void Workload::issue_live_replay_comp (shared_ptr<Chakra::FeederV3::ETFeederNode> node) {
+  WorkloadLayerHandlerData* wlhd = new WorkloadLayerHandlerData;
+  Jalil::ComputeEventHandlerData* cehd = new Jalil::ComputeEventHandlerData;
+  cehd->start_time = Sys::boostedTick ();
+  cehd->sys_id = this->sys->id;
+  wlhd->ehd = cehd;
+  wlhd->node_id = node->id();
+  double elapsed_time = this->sys->live_replay->runtime (node, cehd);
+  uint64_t runtime = static_cast<uint64_t>(elapsed_time * 1e9);  // sec -> ns
+  // statistics
+  if (node->is_cpu_op()) {
+    hw_resource->tics_cpu_ops += runtime;
+  } else {
+    hw_resource->tics_gpu_ops += runtime;
+  }
+  sys->register_event(this, EventType::CompFinished, wlhd, runtime);
 }
 // --- Jalil Morris
 

@@ -152,10 +152,14 @@ protected:
   virtual void DequeueAndTransmit(void);
   
   // --- Jalil
-  // Retransmits packets when not acked 
+  // Retransmits packets when not acked
   void ReTransmit (void);
   void Trace (uint64_t type, uint64_t loc, Ptr<Packet> p);
   // --- Morris
+
+  // --- Jalil ---
+  void ScheduleRetransmitCheck (Time expireAt);
+  // --- Jalil ---
 
   /// Resume a paused queue and call DequeueAndTransmit()
   virtual void Resume(unsigned qIndex);
@@ -182,6 +186,10 @@ protected:
   EventId  m_nextSend;		//< The next send event
   /* State variable for rate-limited queues */
 
+  // --- Jalil ---
+  EventId  m_retransmitEvent;	//< The single pending ReTransmit() wakeup
+  // --- Jalil ---
+
   //qcn
 
   struct ECNAccount{
@@ -196,9 +204,10 @@ protected:
   std::vector<ECNAccount> *m_ecn_source;
 
 public:
-  	// --- Jalil
+  // --- Jalil
 	// outbound queue
-  	std::list <std::pair<std::pair<Ptr<Packet>,Ptr<RdmaQueuePair>>, Time>> m_outbound;
+	// std::list <std::pair<std::pair<Ptr<Packet>,Ptr<RdmaQueuePair>>, Time>> m_outbound;
+	std::multimap <Time, std::pair<Ptr<Packet>, Ptr<RdmaQueuePair>>> m_outbound;
 	// --- Jalil
 
 	Ptr<RdmaEgressQueue> m_rdmaEQ;

@@ -52,6 +52,10 @@ def generate (index, nodes, et):
       n.attr.append (ChakraAttr (name = 'comm_dst', int32_val = node['dst']))
     if 'tag' in node.keys ():
       n.attr.append (ChakraAttr (name = 'comm_tag', int32_val = node['tag']))
+    if 'live-runtime' in node.keys ():
+      n.attr.append (ChakraAttr (name = 'live_runtime', int64_val = int (node['live-runtime'])))
+    if 'live-power' in node.keys ():
+      n.attr.append (ChakraAttr (name = 'live_power', int64_val = int (node['live-power'])))
 
     # special cases
     # -- computation

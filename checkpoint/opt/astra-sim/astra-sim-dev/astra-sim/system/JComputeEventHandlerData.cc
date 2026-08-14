@@ -4,4 +4,4 @@ using namespace AstraSim;
 using namespace Jalil;
 
 ComputeEventHandlerData::ComputeEventHandlerData () :
-  wlhd (nullptr), compute_utilization (0.0), memory_utilization (0.0) {}
+  wlhd (nullptr), compute_utilization (0.0), memory_utilization (0.0), power (0.0) {}

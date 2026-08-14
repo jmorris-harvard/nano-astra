@@ -13,7 +13,8 @@ namespace Jalil {
 enum class CustomComputeType {
   INVALID = 0,
   ROOFLINE,
-  CUDA
+  CUDA,
+  REPLAY
 };
 
 class CustomCompute {

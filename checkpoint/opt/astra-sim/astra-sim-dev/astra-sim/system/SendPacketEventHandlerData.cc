@@ -7,7 +7,8 @@ LICENSE file in the root directory of this source tree.
 
 using namespace AstraSim;
 
-SendPacketEventHandlerData::SendPacketEventHandlerData() {
+SendPacketEventHandlerData::SendPacketEventHandlerData()
+    : _packetTracker(std::make_shared<Jalil::PacketTracker>()) {
     tag = 0;
     callable = nullptr;
     wlhd = nullptr;
@@ -15,7 +16,8 @@ SendPacketEventHandlerData::SendPacketEventHandlerData() {
 
 SendPacketEventHandlerData::SendPacketEventHandlerData(Callable* callable,
                                                        int tag)
-    : BasicEventHandlerData(-1, EventType::PacketSent) {
+    : BasicEventHandlerData(-1, EventType::PacketSent),
+      _packetTracker(std::make_shared<Jalil::PacketTracker>()) {
     this->callable = callable;
     this->tag = tag;
 }
